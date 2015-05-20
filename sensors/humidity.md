@@ -1,13 +1,5 @@
 # Humidity
 
-In this lesson you will:
-
-- Find out what relative humidity is
-- Use the `sudo` command again
-- Take relative humidity measurements in code
-- Monitor changing humidity
-- Display humidity intuitively on the LED matrix
-
 ## What does humidity mean?
 
 1. Look at the image below and listen to your teacher explain what humidity is and the two different ways that it can be measured.

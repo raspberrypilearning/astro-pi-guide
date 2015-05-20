@@ -1,5 +1,7 @@
 # Humidity
 
+The Astro Pi HAT features a number of sensors. One of which is a humidity sensor. It measures the amount of water in the air. 
+
 ## What does humidity mean?
 
   - Humidity is the amount of water vapour in the air.

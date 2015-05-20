@@ -1,10 +1,10 @@
-# Astro Pi HAT
+# A Guide to Astro Pi
 
 ![Astro Pi Logo](images/Astro_Pi_Logo_WEB.png)
 
 This guide is designed to get you up and running with the Astro Pi HAT. It will introduce you to what the board does, how to set it up, how to write your first program and how to use the HATs many features. 
 
-## Getting Started:
+## Getting Started
 
 - [Astro Pi: what is it?](board.md)
 - [Assemble the Astro Pi](assemble.md)
@@ -12,7 +12,7 @@ This guide is designed to get you up and running with the Astro Pi HAT. It will 
 - [Astro Pi: first program](program.md)
 - [Getting started with Astro Pi learn resource]()
 
-## Sensors:
+## Sensors
 
 - [Temperature](temp.md)
 - [Humidity](humidity.md)

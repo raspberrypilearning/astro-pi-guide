@@ -1,6 +1,4 @@
-![](../images/Astro_Pi_1-01.png)
-
-# Humidity - Lesson 6
+# Humidity
 
 In this lesson you will:
 

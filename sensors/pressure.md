@@ -43,7 +43,7 @@ Atmospheric pressure (also known as barometric pressure) is the pressure exerted
 
 1. Select `File > Save` and choose a file name for your program.
 1. Select `Run > Run module`.
-1. If you see the error `Pressure Init Failed, please run as root / use sudo` (look on the last line of the message in red) it means you haven't followed the instructions above. Close everything and go back to step 3.
+1. If you see the error `Pressure Init Failed, please run as root / use sudo` (look on the last line of the message in red) it means you haven't followed the instructions above. Close everything and go back to step 1.
 1. You should see something like this:
 
   ```bash

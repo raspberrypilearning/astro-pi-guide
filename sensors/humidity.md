@@ -66,7 +66,8 @@ In this lesson you will:
       print(humidity)
   ```
 1. Exhale slowly onto the sensors. The water vapour in your breath should cause the readings to jump up.
-1. Keep watching and it should slowly fall back to the background humidity of the classroom.
+1. Keep watching and it should slowly fall back to the background humidity of the room.
 1. Press `Ctrl - C` to stop the program.
-1. The next task would be to show the humidity on the LED matrix in some way. Think about how you would do this and listen to your teacher explain the options.
-1. You may reuse code from the temperature lesson if you wish. Please note that it is possible to get a value higher than 100 from the humidity sensor.
+1. The next task would be to show the humidity on the LED matrix in some way. 
+
+*Note: Please note that it is possible to get a value higher than 100 from the humidity sensor.*

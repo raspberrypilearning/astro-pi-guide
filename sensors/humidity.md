@@ -17,20 +17,8 @@ In this lesson you will:
 
   ![](images/condensation.jpg)
 
-## Programming
+## what is the current humidity?
 
-1. Boot up your Astro Pi computer.
-
-  Log in using the following login information:
-
-  ```bash
-  Login: pi
-  password: raspberry
-  ```
-
-  You will not see any text when typing the password, this is a security feature. Just type it blind.
-1. Load the graphical user interface by typing `startx`.
-1. Open a terminal window using `Menu > Accessories > Terminal`.
 1. Type in the following command:
 
   ```bash

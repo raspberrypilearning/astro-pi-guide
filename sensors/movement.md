@@ -26,13 +26,13 @@ We all know the Earth rotates around an axis that runs between the north and sou
 
 The three axes are:
 
-- Pitch (like a plane taking off)
-- Roll (the plane doing a victory roll)
-- Yaw (imagine steering the plane like a car)
+- **Pitch** (like a plane taking off)
+- **Roll** (the plane doing a victory roll)
+- **Yaw** (imagine steering the plane like a car)
 
 Watch this short [video](https://www.youtube.com/watch?v=pQ24NtnaLl8) that shows where these axes are in relation to a plane. Try to imagine the plane pointing in any random direction. To get the plane into that position you can rotate it by a known amount around each axis to get it into the orientation that you imagined.
 
-So, typically, orientation is represented as three angles between 0 and 360 degrees. One for each of the three axes.
+So, typically, orientation is represented as three angles between 0 and 360 degrees. One for each of the three axes. Let's try this in code!
 
 ## Which way am I pointing?
 
@@ -41,16 +41,17 @@ So, typically, orientation is represented as three angles between 0 and 360 degr
   ```bash
   sudo idel3 &
   ```
+
 1. Select `File > New Window` and enter the following code:
 
   ```python
   from astro_pi import AstroPi
-  
   ap = AstroPi()
   ap.clear()
   
-  orientation = ap.get_orientation()
-  print("p: {pitch:.1f}, r: {roll:.1f}, y: {yaw:.1f}".format(**orientation))
+  o = ap.get_orientation()
+  pitch, roll, yaw = o.values()
+  print(pitch, roll, yaw)
   ```
 
 1. Select `File > Save` and choose a file name for your program.
@@ -60,5 +61,6 @@ So, typically, orientation is represented as three angles between 0 and 360 degr
   
   ```
   IMU Init Succeeded
-  p: 2.9, r: 339.8, y: 303.2
+  (356.35723002363454, 303.4986602798494, 339.19880231669873)
   ```
+

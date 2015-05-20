@@ -2,7 +2,7 @@
 
 ![Astro Pi Logo](images/Astro_Pi_Logo_WEB.png)
 
-This guide is designed to get you up and running with the Astro Pi HAT. It will introduce you to what the board does, how to set it up, how to write your first program and how to use the HATs many features. 
+This collection of guides and worksheets have been designed to provide you with a broad understanding of the Astro Pi sense HAT and its capabilities. They could be used by teachers and students who have just entered the Astro Pi [Secondary School competition](http://astro-pi.org/secondary-school-competition/) or by anyone wanting to make the most of their Astro Pi HAT. It will introduce you to what the board does, how to set it up, how to write your first program and how to use the HATs many features. 
 
 ## Getting Started
 

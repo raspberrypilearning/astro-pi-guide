@@ -6,14 +6,7 @@ The Astro Pi HAT LED Matrix contains 64 multi-colour LEDs. Each of the 64 LEDs a
 
 ![](images/additive_color_mixing.png)
 
-  - In additive colors mixing there are three primary colours: red, green, and blue.
-  - In the image there are three spotlights of equal brightness, one for each primary colour.
-  - In the absence of any colour the result is black.
-  - If all three primary colors are mixed, the result is white.
-  - When red and green combine, the result is yellow.
-  - When red and blue combine, the result is magenta.
-  - When blue and green combine, the result is cyan.
-  - It's possible to make even more colours than this by varying the brightness of the primary colours used.
+In additive colors mixing there are three primary colours: red, green, and blue. In the image above, there are three spotlights of equal brightness, one for each primary colour. In the absence of any colour the result is black.If all three primary colors are mixed, the result is white. When red and green combine, the result is yellow. When red and blue combine, the result is magenta. When blue and green combine, the result is cyan. It's possible to make even more colours than this by varying the brightness of the primary colours used.
 
 1. Open **Python 3** from a terminal window as `sudo` by typing:
   

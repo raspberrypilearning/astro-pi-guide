@@ -34,7 +34,8 @@ In additive colors mixing there are three primary colours: red, green, and blue.
 
 ## Changing foreground and background colours
 
-1. This colour mixing system is used all throughout the Astro Pi programming module.
+This colour mixing system is used all throughout the Astro Pi programming module. You can use colour mixing to great effect by programming scrolling text. In this example, you can set the colour of the text that will appear on the matrix. 
+
 1. Type the following code into a new file:
 
   ```python

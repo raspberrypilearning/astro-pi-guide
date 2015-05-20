@@ -102,6 +102,7 @@ The experiment involves sealing an Astro Pi inside a plastic bottle along with a
 1. Be aware that the moisture in your breath will steam up the inside of the bottle so stop before you make the Astro Pi damp or wet.
 1. Remove the tape and separate the two halves of the bottle if you need to change the code. Just reconnecting the peripherals to do a quick edit should work fine.
 
+
 ## Display the pressure on the LED Matrix
 
 Below is the code that was used in the video. It can cope with 1000 to 1100 millibars. So that’s 100 millibars of range. We know that the LED matrix colours have a range of 0 to 255. So the first thing it does is create a ratio between the pressure range and the colour range. The plan is then to multiply the measured pressure by that ratio to get the colour. You have to subtract 1000 from the measured pressure to make this work though (so you're multiplying a number between 0 and 100 by the ratio). It then clamps the colour to a maximum of 255 incase there is someone with very strong lungs who can drive the pressure higher than 1100 millibars.

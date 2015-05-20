@@ -15,13 +15,13 @@ This collection of guides and worksheets have been designed to provide you with 
 ## Sensors
 
 - [Temperature](temp.md)
-- [Humidity](humidity.md)
+- [Humidity](sensors/humidity.md)
 - [Gyroscope](gyro.md)
 - [Accelorometer](program.md)
 - [Pressure](pressure.md)
 
 ## Inputs & Outputs
-- [Joystick](joystick.md)
+- [Joystick](input-output/joystick.md)
 - [LED Matrix](led-matrix.md)
 
 ## Examples:

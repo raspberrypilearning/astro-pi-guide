@@ -87,7 +87,7 @@ Your code takes one measurement and then exits.
 
 ## Display the temperature on the LED Matrix
 
-Think about how you could show the temperature information on the LED matrix in some way. The obvious choice would be to use the `show_message` function. While this would work there are probably better ways to do it. For example, you could:
+Think about how you could show the temperature information on the LED matrix in some way. See the [LED Matrix guide](../inputs-outputs/led-matrix.md) for more info. The obvious choice would be to use the `show_message` function. While this would work there are probably better ways to do it. For example, you could:
   - Use the `clear` function to display some predefined colours based on ranges that the temperature falls in. For example 0 to 5 degrees could be blue?
   - Use the `clear` function to display a single colour but change the brightness of red (0 to 255) based on the measured temperature?
   - Use the `set_pixel` function to display a bar that moves up and down similar to a thermometer.

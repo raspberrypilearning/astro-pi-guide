@@ -64,3 +64,12 @@ So, typically, orientation is represented as three angles between 0 and 360 degr
   (356.35723002363454, 303.4986602798494, 339.19880231669873)
   ```
 
+1. We don't need all the numbers after the decimal point so let's round them off. Just before the `print(pitch, roll, yaw)` line add these lines below:
+
+  ```python
+  pitch = round(pitch, 1)
+  roll = round(roll, 1)
+  yaw = round(yaw, 1)
+  ```
+
+## Monitor movement over time

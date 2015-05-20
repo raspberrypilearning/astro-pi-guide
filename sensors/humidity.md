@@ -2,12 +2,24 @@
 
 ## What does humidity mean?
 
-1. Look at the image below and listen to your teacher explain what humidity is and the two different ways that it can be measured.
+  - Humidity is the amount of water vapour in the air.
+  - Water vapor is the gaseous state of water.
 
-  - Absolute (grams of water per cubic meter of air)
-  - Relative (percentage of actual water vapour present compared to the maximum possible)
+The amount of water vapour suspended in the air is dependent on temperature.
+
+  - The higher the temperature the more water vapour can be suspended in the air.
+  - The lower the temperature the less water vapour can be suspended.
 
   ![](images/condensation.jpg)
+  
+When you take a cold can or bottle out of the fridge you see water appearing on it. This happens because the cold bottle is cooling the air around it and causing the air to be less able to suspend water vapour. This then causes the water vapour, that can't be suspend anymore, to turn back into liquid water. This is called *condensation*. So given this information we next need to understand that there are two ways that we can measure humidity:
+
+  - *Absolute* humidity is the total mass of water vapor suspended in a given volume of air. Temperature is not taken into consideration. It's usually expressed as grams of water per cubic meter of air.
+  - *Relative* humidity however is expressed as a percentage. For any given air temperature there is a maximum amount of water vapour that it can suspend. Relative humidity is the percentage of actual water vapour present compared to the maximum possible.
+
+A known amount of water vapour will result in different relative humidity readings depending on the temperature of the air and the ability of the air to suspend it. So a low air temperature might give a high relative humidity reading because the air can't suspend much more water vapour. Increase the temperature of the air, keep the same amount of water vapour, and the relative humidly reading will drop because the maximum amount of water vapour that *could* be suspended has increased.
+
+The Astro Pi gives you the humidity measurement as *relative humidity*. This is why the humidity sensor also has a temperature sensor built in!
 
 ## what is the current humidity?
 1. Open **Python 3** from a terminal window as `sudo` by typing:
@@ -49,7 +61,10 @@
   Humidity sensor Init Succeeded
   34.6
   ```
-1. It would be good to monitor the humidity as it changes, so let's put our code into a `while` loop and run it again.
+  
+## Monitoring humidity over time
+
+1. It would be good to monitor the humidity as it changes, so let's put your code into a `while` loop and run it again.
 
   ```python
   while True:
@@ -60,6 +75,37 @@
 1. Exhale slowly onto the sensors. The water vapour in your breath should cause the readings to jump up.
 1. Keep watching and it should slowly fall back to the background humidity of the room.
 1. Press `Ctrl - C` to stop the program.
-1. The next task would be to show the humidity on the LED matrix in some way. 
+
+## Display the humidity on the LED matrix
+
+Think about how you might use the matrix to display the humidity. One way is to divide 64 (the number of LEDs in the matrix) by 100, multiply that by the percentage of relative humidity which gives you how many LEDs you should turn on. 100% would be all 64 LEDs turned on. To do this you need to build up a pixel list of the right number of light vs dark pixels and then call the `set_pixels` function.
+
+  Here is some example code (notice that you have to clamp the humidity measurement to 100):
+  
+  ```python
+  from astro_pi import AstroPi
+  
+  ap = AstroPi()
+  ap.clear()
+  
+  on_pixel = [255, 0, 0]
+  off_pixel = [0, 0, 0]
+  
+  while True:
+      humidity = ap.get_humidity()
+      humidity = round(humidity, 1)
+      
+      if humidity > 100:
+          humidity = 100.0
+      
+      pixels = []
+      on_count = int((64 / 100.0) * humidity)
+      off_count = 64 - on_count
+      
+      pixels.extend([on_pixel] * on_count)
+      pixels.extend([off_pixel] * off_count)
+      
+      ap.set_pixels(pixels)
+  ```
 
 *Note: Please note that it is possible to get a value higher than 100 from the humidity sensor.*

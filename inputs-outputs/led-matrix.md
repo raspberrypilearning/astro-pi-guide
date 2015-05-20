@@ -1,9 +1,4 @@
-# Colour
-
-In this activity you will:
-
-- Learn about additive colour mixing
-- Program various colours on the LED matrix
+# LED Matrix
 
 ## Simple Colour mixing
 
@@ -51,3 +46,52 @@ In this activity you will:
   ```
 
   Don't forget the comma!
+  
+## Pixels
+
+  ![](images/closeup_of_pixels.jpg)
+
+
+1. Select `File > New Window`.
+1. Type in the following code:
+
+  ```python
+  from astro_pi import AstroPi
+  ap = AstroPi()
+  ap.clear()
+  x = 0
+  y = 0
+  ap.set_pixel(x, y, 255, 255, 255)
+  ```
+
+1. Select `File > Save` and choose a file name for your program.
+1. Then select `Run > Run module`.
+1. This will turn one LED in the corner white.
+1. Remember that you can change the colour if you wish.
+1. Your teacher will explain how to use the `x, y` co-ordinate system.
+
+  0|1|2|3|4|5|6|7
+  ---|---|---|---|---|---|---|---
+  1|||||||
+  2|||||||
+  3|||||||
+  4|||||||
+  5|||||||
+  6|||||||
+  7|||||||
+
+1. See if you can get a different colour in each corner of the LED matrix. You will need to use the `set_pixel` command multiple times in your code.
+1. You may be tempted to try and draw shapes or patterns using the `set_pixel` command over and over in your code. There is a `set_pixels` command though and with it you can change all 64 LEDs using one line of code! Your teacher will show you how to use it. You can copy and paste this code get yourself going:
+
+  ```python
+  creeper_pixels = [
+  O, O, O, O, O, O, O, O,
+  O, O, O, O, O, O, O, O,
+  O, O, O, O, O, O, O, O,
+  O, O, O, O, O, O, O, O,
+  O, O, O, O, O, O, O, O,
+  O, O, O, O, O, O, O, O,
+  O, O, O, O, O, O, O, O,
+  O, O, O, O, O, O, O, O
+  ]
+  ```

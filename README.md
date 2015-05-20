@@ -16,20 +16,17 @@ This collection of guides and worksheets have been designed to provide you with 
 
 - [Temperature](sensors/temperature.md)
 - [Humidity](sensors/humidity.md)
-- [Gyroscope](sensros/gyro.md)
-- [Accelorometer](sensors/program.md)
 - [Pressure](sensors/pressure.md)
+- [Movement](sensors/movement.md)
 
 ## Inputs & Outputs
 - [Joystick](inputs-outputs/joystick.md)
 - [LED Matrix](inputs-outputs/led-matrix.md)
 
-## Examples:
-- Martin O'Hanlon has built a [virtual Astro Pi](http://www.stuffaboutcode.com/2015/05/interactive-minecraft-astro-pi.html) board in Minecraft which students can interact with to explore the functionality of the board. 
+## Learn more about Astro Pi
 
-## Where Next?
-
-- [Astro Pi Competition]()
+- [The Official Astro Pi Website](http://astro-pi.org/)
+- Martin O'Hanlon has built a [virtual Astro Pi](http://www.stuffaboutcode.com/2015/05/interactive-minecraft-astro-pi.html) board in Minecraft which you can interact with to explore the functionality of the board. 
 
 
 

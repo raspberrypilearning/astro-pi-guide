@@ -1,6 +1,6 @@
 # Temperature
 
-In this lesson you will:
+In this activity you will:
 
 - Use the `sudo` command
 - Take temperature measurements in code

@@ -85,15 +85,7 @@ This is how all computer and smartphone screens work. If you want to make recogn
 
 The `x` and `y` variables can be used to control which individual LED the `set_pixel` command should change. **X** is horizontal and ranges from `0` on the *left* to `7` on the *right*. **Y** is vertical and ranges from `0` at the *top* to `7` on the *bottom*. Therefore an `x, y` co-ordinate of `0, 0` is the *top left*. An `x, y` co-ordinate of `7, 7` is the *bottom right*.
 
-  0|1|2|3|4|5|6|7
-  ---|---|---|---|---|---|---|---
-  1|||||||
-  2|||||||
-  3|||||||
-  4|||||||
-  5|||||||
-  6|||||||
-  7|||||||
+![](images/coordinates.png)
 
 You can get a different colour in each corner of the LED matrix. You will need to use the `set_pixel` command multiple times in your code like this:
 

@@ -10,7 +10,7 @@ This collection of guides and worksheets have been designed to provide you with 
 - [Assemble the Astro Pi](assemble.md)
 - [Software setup](software.md)
 - [Astro Pi: first program](program.md)
-- [Getting started with Astro Pi learn resource]()
+- [Getting started with Astro Pi learn resource](http://raspberrypi.org/resources/learn/getting-started-with-astro-pi)
 
 ## Sensors
 

@@ -92,7 +92,7 @@ Here is the pseudo code:
   - `K_RIGHT`
   - `K_RETURN`
 
-1. We can add a section to each direction to complete our code:
+1. We can add a section for each direction to complete our code:
   ```python
   import pygame
   
@@ -130,3 +130,5 @@ Here is the pseudo code:
               running = False
               print("BYE")
   ```
+
+1. When you run your code you should now be able to move the pixel point anywhere on the matrix.

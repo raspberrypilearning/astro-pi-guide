@@ -57,7 +57,7 @@ Here is the pseudo code:
     - If RIGHT then add 1 to `x`
     - If LEFT then subtract 1 from `x`
     - Turn ON the LED using updated `x` and `y`
-
+
 1. Start by just adding the code for the DOWN key. Detele the `print(event)` command and insert the code below at the same indentation level:
 
   ```python
@@ -70,10 +70,63 @@ Here is the pseudo code:
       ap.set_pixel(x, y, 255, 255, 255)
   ```
 
-1. When you run the code you'll get an an error. 
-1. Where you have `if event.key == K_DOWN:` in your code, you can also use:
+1. Save and run the code. You sould be able to move the point down using the `DOWN` key or the joystick. If you keep going and you'll eventually see this error:
+
+  `ValueError: Y position must be between 0 and 7`
+
+1. Our `y` value can only be between 0-7 otherwise it's off the edge of the matrix and into empty space! So that's why the error happens. The Astro Pi doesn't understand. Our code just keeps adding 1 to `y` every time the DOWN key is pressed so we need to stop `y` going above 7. 
+
+  We can achieve this by adding the syntax `and y < 7` (and `y` is less than 7) to the key direction test:
+  
+  ```python
+  if event.key == K_DOWN and y < 7:
+      y = y + 1
+  ```
+
+1. Save and run the code again and this time the code should not allow the point to go beyond the edge of the screen.
+
+1. Now that that work you will need to add the other directions for the joystick. Where you have `if event.key == K_DOWN:` in your code, you can also use:
 
   - `K_UP`
   - `K_LEFT`
   - `K_RIGHT`
   - `K_RETURN`
+
+1. We can add a section to each direction to complete our code:
+  ```python
+  import pygame
+  
+  from pygame.locals import *
+  from astro_pi import AstroPi
+  
+  pygame.init()
+  pygame.display.set_mode((640, 480))
+  
+  ap = AstroPi()
+  ap.clear()
+  
+  running = True
+  
+  x = 0
+  y = 0
+  ap.set_pixel(x, y, 255, 255, 255)
+  
+  while running:
+      for event in pygame.event.get():
+          if event.type == KEYDOWN:
+              ap.set_pixel(x, y, 0, 0, 0)  # Black 0,0,0 means OFF
+              
+              if event.key == K_DOWN and y < 7:
+                  y = y + 1
+              elif event.key == K_UP and y > 0:
+                  y = y - 1
+              elif event.key == K_RIGHT and x < 7:
+                  x = x + 1
+              elif event.key == K_LEFT and x > 0:
+                  x = x - 1
+              
+              ap.set_pixel(x, y, 255, 255, 255)
+          if event.type == QUIT:
+              running = False
+              print("BYE")
+  ```

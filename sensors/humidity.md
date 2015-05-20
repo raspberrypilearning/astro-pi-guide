@@ -18,16 +18,12 @@ In this lesson you will:
   ![](images/condensation.jpg)
 
 ## what is the current humidity?
-
-1. Type in the following command:
-
+1. Open **Python 3** from a terminal window as `sudo` by typing:
+  
   ```bash
-  sudo idle3 &
+  sudo idel3 &
   ```
-
-1. A Python Shell window will now appear. The terminal window can now be closed.
-1. Select `File > New Window`.
-1. Enter the following code:
+1. Select `File > New Window` and enter the following code:
 
   ```python
   from astro_pi import AstroPi

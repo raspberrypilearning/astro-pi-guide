@@ -1,12 +1,5 @@
 # Temperature
 
-In this activity you will:
-
-- Use the `sudo` command
-- Take temperature measurements in code
-- Round numbers in code
-- Display temperature intuitively on the LED matrix
-
 ## A thermometer
 
 1. Who has had one of these stuck in their mouth before?
@@ -17,29 +10,15 @@ In this activity you will:
 1. The Astro Pi temperature sensors can measure temperatures from as low as -40 up to +120 degrees Celsius though, so they are much more versatile than a clinical thermometer.
 1. The Astro Pi has *two* temperature sensors. One is built into the humidity sensor and the other is built into the pressure sensor. You can choose which one to use or you could use *both* and average the result.
 
-## Programming
+## What is the temperature?
 
-1. Boot up your Astro Pi computer.
-
-  Log in using the following login information:
-
+1. Open **Python 3** from a terminal window as `sudo` by typing:
+  
   ```bash
-  Login: pi
-  password: raspberry
+  sudo idel3 &
   ```
 
-  You will not see any text when typing the password, this is a security feature. Just type it blind.
-1. Load the graphical user interface by typing `startx`.
-1. Open a terminal window using `Menu > Accessories > Terminal`.
-1. Type in the following command:
-
-  ```bash
-  sudo idle3 &
-  ```
-
-1. A Python Shell window will now appear. The terminal window can now be closed.
-1. Select `File > New Window`.
-1. Enter the following code:
+1. Enter the following code into a new window:
 
   ```python
   from astro_pi import AstroPi

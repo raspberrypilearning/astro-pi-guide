@@ -20,6 +20,20 @@ Below is a picture of the IMU sensor from the Apollo command module. See how big
 
 ![](images/apollo_imu.jpg)
 
+## How is orientation represented?
+
+We all know the Earth rotates around an axis that runs between the north and south poles. All objects in space or otherwise have *three* axes around which they can rotate. If you know how much rotation has happened on each axis then you know which way the object is pointing.
+
+The three axes are:
+
+- Pitch (like a plane taking off)
+- Roll (the plane doing a victory roll)
+- Yaw (imagine steering the plane like a car)
+
+Watch this short [video](https://www.youtube.com/watch?v=pQ24NtnaLl8) that shows where these axes are in relation to a plane. Try to imagine the plane pointing in any random direction. To get the plane into that position you can rotate it by a known amount around each axis to get it into the orientation that you imagined.
+
+So, typically, orientation is represented as three angles between 0 and 360 degrees. One for each of the three axes.
+
 ## Which way am I pointing?
 
 1. Open **Python 3** from a terminal window as `sudo` by typing:

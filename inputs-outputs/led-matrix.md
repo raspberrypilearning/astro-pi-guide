@@ -35,14 +35,14 @@ The Astro Pi HAT LED Matrix contains 64 multi-colour LEDs. Each of the 64 LEDs a
 1. Select `File > Save` and choose a file name for your program.
 1. Then select `Run > Run module`.
 1. The LED matrix will then go bright white.
-1. The variables `r`, `g` and `b` represent the primary colours red, green and blue. The numbers they contain specify how bright each colour should be. They can be between zero and 255. So in the above code we've asked for maximum red, green and blue so the result is white.
+1. The variables `r`, `g` and `b` represent the primary colours red, green and blue. The numbers they contain specify how bright each colour should be. They can be between zero and 255. So in the above code the maximum value for red, green and blue have been used so the result is white.
 1. Change the values to specify 255 red but zero green and blue. Then run the code again.
 1. What other colours can you make?
 
 ## Changing foreground and background colours
 
 1. This colour mixing system is used all throughout the Astro Pi programming module.
-1. Open the code file from the previous lesson and modify it like so:
+1. Type the following code into a new file:
 
   ```python
   from astro_pi import AstroPi
@@ -50,9 +50,7 @@ The Astro Pi HAT LED Matrix contains 64 multi-colour LEDs. Each of the 64 LEDs a
   ap.show_message("Hello my name is Tim Peake", text_colour=(255, 0, 0))
   ```
 
-  Note the addition of the syntax `, text_colour=(255, 0, 0)`.
-  
-  Don't forget the comma!
+  Note the syntax `, text_colour=(255, 0, 0)`. Don't forget the comma!
   
 1. You can also modify the background colour for the message like so:
 
@@ -62,7 +60,7 @@ The Astro Pi HAT LED Matrix contains 64 multi-colour LEDs. Each of the 64 LEDs a
   ap.show_message("Hello my name is Tim Peake", text_colour=(255, 0, 0), back_colour=(255,255,255))
   ```
 
-  Don't forget the comma!
+  *Note: The comma is important, Do not forget it!*
   
 ## Pixels
 
@@ -70,8 +68,7 @@ This image shows the pixels on a laptop LCD screen. You can see that the pixels 
 
   ![](images/closeup_of_pixels.jpg)
 
-This is how all computer and smartphone screens work. If we want to make recognisable shapes on the LED matrix this is what we also need to do. We only have a resolution of 8 by 8 pixels to work with though. So you must resign yourself to making shapes and icons that will look quite blocky. This can be a nice challenge!
-
+This is how all computer and smartphone screens work. If you want to make recognisable shapes on the LED matrix this is what you also need to do. You only have a resolution of 8 by 8 pixels to work with on the Astro Pi HAT LED Matrix though. So you must resign yourself to making shapes and icons that will look quite blocky. This can be a nice challenge!
 
 1. Select `File > New Window`.
 1. Type in the following code:
@@ -104,13 +101,23 @@ The `x` and `y` variables can be used to control which individual LED the `set_p
   6|||||||
   7|||||||
 
-1. See if you can get a different colour in each corner of the LED matrix. You will need to use the `set_pixel` command multiple times in your code.
+You can get a different colour in each corner of the LED matrix. You will need to use the `set_pixel` command multiple times in your code like this:
 
-## Drawing shapes and patterns on the LEd Matrix
+  ```python
+  from astro_pi import AstroPi
+  ap = AstroPi()
+  ap.clear()
+  ap.set_pixel(0, 0, 255, 0, 0)
+  ap.set_pixel(0, 7, 0, 255, 0)
+  ap.set_pixel(7, 0, 0, 0, 255)
+  ap.set_pixel(7, 7, 255, 0, 255)
+  ```
+
+## Drawing shapes and patterns on the LED Matrix
 
 You may be tempted to try and draw shapes or patterns using the `set_pixel` command over and over in your code. There is a `set_pixels` command though and with it you can change all 64 LEDs using one line of code! For example, you could draw a Minecraft creeper face on the LED Matrix:
 
-    ```python
+  ```python
   from astro_pi import AstroPi
   
   ap = AstroPi()

@@ -1,15 +1,16 @@
 # The Joystick
 
-## Keyboard mapping
-
-1. The Astro Pi joystick is mapped to the four keyboard cursor keys with the middle click being mapped to the Return key. Meaning that moving the joystick has exactly the same effect as pressing those keys on the keyboard.
+The Astro Pi joystick is mapped to the four keyboard cursor keys with the middle click being mapped to the Return key. Meaning that moving the joystick has exactly the same effect as pressing those keys on the keyboard. Remember that down on the joystick is with the HDMI port facing downwards.
 
   ![](images/cursor_keys.jpg)
+  
+## Keyboard mapping
 
-1. Remember that down on the joystick is with the HDMI port facing downwards.
-
-## Testing the joystick
-
+1. Open **Python 3** from a terminal window as `sudo` by typing:
+  
+  ```bash
+  sudo idel3 &
+  ```
 1. A Python Shell window will now appear.
 1. Select `File > New Window`.
 1. Type in the following code:
@@ -41,16 +42,14 @@
   *Note that we are using the [pygame](http://www.pygame.org/docs/) Python module to detect the key presses.*
 
 1. A blank window will appear. Use the mouse to move it, drag the title bar, to one side of your screen so that the *Python Shell* window is also visible.
-1. Keep the blank window selected but move the mouse over it, press and release some keys on the keyboard and waggle the Astro Pi joystick. Try pressing and holding a key for a moment and then releasing it a few seconds later. You should notice that two events occur when you do this. One for the key going down and another for the key being released. For this program we'll only use the KEY DOWN event.
-1. Click the `x` in the corner of the blank pygame window. You should see the `BYE` message appear in the *Python Shell* window but the blank window does not close. Just minimise it.
+1. Keep the blank window selected but move the mouse over it, press and release some keys on the keyboard and waggle the Astro Pi joystick. Try pressing and holding a key for a moment and then releasing it a few seconds later. You should notice that two events occur when you do this. One for the key going down and another for the key being released. For this program you will only use the **KEY DOWN** event.
+1. Click the `x` in the corner of the blank pygame window. You should see the `BYE` message appear in the *Python Shell* window but the blank window does not close. 
 
   *We're consuming the pygame event queue using the `for event in pygame.event.get():` syntax. This will loop through all keyboard and mouse events that are happening. Inside the loop we display what the event was by using `print(event)` and then test to see if the event type is `QUIT`, if it is we set `running` to `False` which causes the `while` loop to end and the program to finish. The program should print a line of text in the Python Shell window whenever we move the mouse, click the mouse and press or release a keyboard key.*
   
 ## Detecting movement of joystick with code
 
-Here is the pseudo code:
-
-  - If a key is pressed DOWN
+Think about how a joystick might work. You can use the LED Matrix to help you think about it. Let's make a pixel white on the matrix and use the joystick to move the pixel around the 8x8 matrix. To do this you can use an event to detect a key press. For example, if a key is pressed DOWN what steps need to happen to move the pixel? 
     - Turn OFF the LED using current `x` and `y`
     - If DOWN then add 1 to `y`
     - If UP then subtract 1 from `y`
@@ -58,7 +57,7 @@ Here is the pseudo code:
     - If LEFT then subtract 1 from `x`
     - Turn ON the LED using updated `x` and `y`
 
-1. Start by just adding the code for the DOWN key. Detele the `print(event)` command and insert the code below at the same indentation level:
+1. Start by just adding the code for the DOWN key. Delete the `print(event)` command that you used in the previous section and insert the code below at the same indentation level:
 
   ```python
   if event.type == KEYDOWN:
@@ -70,7 +69,7 @@ Here is the pseudo code:
       ap.set_pixel(x, y, 255, 255, 255)
   ```
 
-1. Save and run the code. You sould be able to move the point down using the `DOWN` key or the joystick. If you keep going and you'll eventually see this error:
+1. Save and run the code. You sould be able to move the pixel point down using the `DOWN` key or the joystick. If you keep going and you'll eventually see this error:
 
   `ValueError: Y position must be between 0 and 7`
 
@@ -92,7 +91,7 @@ Here is the pseudo code:
   - `K_RIGHT`
   - `K_RETURN`
 
-1. We can add a section for each direction to complete our code:
+1. We can add a section for each direction to complete your code:
   ```python
   import pygame
   

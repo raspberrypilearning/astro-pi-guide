@@ -1,6 +1,6 @@
 # Astro Pi: software setup
 
-This guide assumes you have an SD card with loaded with NOOBS/Raspbian. If not, see [the Downloads section](http://www.raspberrypi.org/downloads/) to download NOOBS/Raspbian and use the [NOOBS setup guide](http://www.raspberrypi.org/help/noobs-setup/) for help with installation.
+This guide assumes you have an SD card loaded with NOOBS/Raspbian. If not, see [the Downloads section](http://www.raspberrypi.org/downloads/) to download NOOBS/Raspbian and use the [NOOBS setup guide](http://www.raspberrypi.org/help/noobs-setup/) for help with installation.
 
 [Connect](assemble.md) your Astro Pi HAT and boot it up.
 

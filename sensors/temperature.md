@@ -92,7 +92,7 @@ Think about how you could show the temperature information on the LED matrix in 
   - Use the `clear` function to display a single colour but change the brightness of red (0 to 255) based on the measured temperature?
   - Use the `set_pixel` function to display a bar that moves up and down similar to a thermometer.
 
-Below is some starter code for the final suggestion above. This code will display a bar that has a range of 8 degrees Celsius (one degree per horizontal row of LEDs). The maximum it can display is `31` (hard coded; feel free to edit this) and so the minimum is `31 - 8` which is `23`. If the measured temperature goes outside of that range then errors can occur. You can add code to clamp the measured temperature to prevent them if you like.
+Below is some starter code for the final suggestion above. This code will display a bar that has a range of 8 degrees Celsius (one degree per horizontal row of LEDs). The maximum it can display is `31` (hard coded; feel free to edit this) and so the minimum is `31 - 8` which is `23`. If the measured temperature goes outside of that range then errors can occur. You can add code to clamp the measured temperature to prevent these errors if you like.
 
   ```python
   from astro_pi import AstroPi

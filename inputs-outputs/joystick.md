@@ -40,13 +40,13 @@ The Astro Pi joystick is mapped to the four keyboard cursor keys, with the mouse
 1. Select `File > Save` and choose a file name for your program.
 1. Then select `Run > Run module`.
 
-  *Note that we are using the [pygame](http://www.pygame.org/docs/) Python module to detect the key presses.*
+  Note that we are using the [pygame](http://www.pygame.org/docs/) Python module to detect the key presses.
 
-1. A blank window will appear. Use the mouse to move it to one side of your screen so that the *Python Shell* window is also visible.
+1. A blank window will appear. Use the mouse to move it to one side of your screen so that the Python Shell window is also visible.
 1. Keep the blank window selected but move the mouse over it, press and release some keys on the keyboard and waggle the Astro Pi joystick. Try pressing and holding a key for a moment and then releasing it a few seconds later. You should notice that two events occur when you do this: one for the key going down, and another for the key being released. For this program you will only use the **KEY DOWN** event.
 1. Click the `x` in the corner of the blank pygame window. You should see the `BYE` message appear in the *Python Shell* window but the blank window does not close. 
 
-  *We're consuming the pygame event queue using the `for event in pygame.event.get():` syntax. This will loop through all keyboard and mouse events that occur. Inside the loop, we display what the event was by using `print(event)` and then test to see if the event type is `QUIT`. If it is, we set `running` to `False` which causes the `while` loop to end and the program to finish. The program should print a line of text in the Python Shell window whenever we move the mouse, click the mouse, and press or release a keyboard key.*
+We're consuming the pygame event queue using the `for event in pygame.event.get():` syntax. This will loop through all keyboard and mouse events that occur. Inside the loop, we display what the event was by using `print(event)` and then test to see if the event type is `QUIT`. If it is, we set `running` to `False` which causes the `while` loop to end and the program to finish. The program should print a line of text in the Python Shell window whenever we move the mouse, click the mouse, and press or release a keyboard key.
   
 ## Detecting movement of joystick with code
 

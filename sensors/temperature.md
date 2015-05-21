@@ -4,7 +4,7 @@ The Astro Pi HAT features a number of sensors, including a temperature sensor.
 
   ![](images/thermometer.jpg)
 
-The image above shows a clinical thermometer. You may have been asked to place one in your mouth when you've been ill. Notice that the numbers start at 35, so it's only used for measuring human body temperature.The Astro Pi temperature sensors can measure temperatures from as low as -40 up to +120 degrees Celsius though, so they are much more versatile than a clinical thermometer. The Astro Pi has *two* temperature sensors. One is built into the humidity sensor and the other is built into the pressure sensor. You can choose which one to use or you could use *both* and average the result.
+The image above shows a clinical thermometer. You may have been asked to place one in your mouth when you've been ill. Notice that the numbers start at 35, so it's only used for measuring human body temperature. The Astro Pi temperature sensors can measure temperatures from as low as -40 degrees Celsius up to +120 degrees Celsius though, so they are much more versatile than a clinical thermometer. The Astro Pi has *two* temperature sensors. One is built into the humidity sensor and the other is built into the pressure sensor. You can choose which one to use, or you could use *both* and average the result.
 
 ## What is the temperature?
 
@@ -28,7 +28,7 @@ The image above shows a clinical thermometer. You may have been asked to place o
 
 1. Select `File > Save` and choose a file name for your program.
 1. Select `Run > Run module`.
-1. If you see the error `Humidity Init Failed, please run as root / use sudo` (look on the last line of the message in red) it means you haven't followed the instructions above. Close everything and go back to step 1.
+1. If you see the error `Humidity Init Failed, please run as root / use sudo` (look on the last line of the message in red), it means you haven't followed the instructions above. Close everything and go back to step 1.
 1. You should see something like this:
 
   ```bash

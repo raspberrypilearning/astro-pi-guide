@@ -58,7 +58,7 @@ See if you can get the spacecraft to do the pitch, roll and yaw movements. Refer
 
 The code behind this demo is basically calling the Astro Pi `get_orientation` function which accesses the IMU sensor. This then returns three angles between 0 and 360 degrees. One for each axis (pitch, roll and yaw). The spacecraft model is then rotated by those angles so that it points in the same direction. This is all repeating over and over very quickly to maintain the orientation of the model with what the IMU is reporting.
 
-Let's try a simpler version of this ourselves in code.
+Press `Esc` to exit the demo. Let's try a simpler version of this ourselves in code.
 
 ## Which way am I pointing?
 

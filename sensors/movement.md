@@ -32,7 +32,33 @@ The three axes are:
 
 Watch this short [video](https://www.youtube.com/watch?v=pQ24NtnaLl8) that shows where these axes are in relation to a plane. Try to imagine the plane pointing in any random direction. To get the plane into that position, you can rotate it by a known amount around each axis to get it into the orientation that you imagined.
 
-So, typically, orientation is represented as three angles between 0 and 360 degrees, one for each of the three axes. Let's try this in code!
+Let's download and run a 3D demo program to explore this.
+
+## Apollo Soyuz Demo
+
+The image below shows the Apollo Soyuz module that was used to take humans to the surface of the moon during the 1970s. The 3D demo we're going to play with shows this same spacecraft (but with less detail).
+
+![](images/apollo_soyuz.jpg)
+
+You will need to have your Astro Pi connected to the internet in order to download the required software.
+
+Enter the commands below into a terminal window:
+
+```bash
+sudo apt-get install python3-pip
+sudo pip-3.2 install pi3d
+git clone git://github.com/astro-pi/apollo-soyuz
+cd apollo-soyuz
+sudo ./soyuz.py
+```
+
+Pi 1 users will have to wait 3 to 4 minutes for this to load. For Pi 2 users it's about 30 seconds. When you see the spacecraft appear on the screen start moving the Astro Pi around with your hands. The the main booster is where the SD card slot is on your Astro Pi.
+
+See if you can get the spacecraft to do the pitch, roll and yaw movements. Refer back to the [video](https://www.youtube.com/watch?v=pQ24NtnaLl8) if you need to remind yourself which is which.
+
+The code behind this demo is basically calling the Astro Pi `get_orientation` function which accesses the IMU sensor. This then returns three angles between 0 and 360 degrees. One for each axis (pitch, roll and yaw). The spacecraft model is then rotated by those angles so that it points in the same direction. This is all repeating over and over very quickly to maintain the orientation of the model with what the IMU is reporting.
+
+Let's try a simpler version of this ourselves in code.
 
 ## Which way am I pointing?
 

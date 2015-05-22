@@ -26,10 +26,6 @@ So this is basically a movement sensor and will allow you to measure how you're 
 1. There is also a [pressure](http://en.wikipedia.org/wiki/Atmospheric_pressure) sensor for measuring air pressure, something which is certainly important in space. It's the chip to the right of the text `PRESSURE`.
 1. Last but not least is the joystick. The Astro Pi cannot be connected to a USB keyboard or mouse in space, so it has its own five button joystick. This is the silver rectangle in the bottom right corner with the small stick poking out of the top. It can move up, down, left, right, and allow middle-clicks.
 
-## What can I do with it?
-
-*Section for some examples*
-
 ## What's Next?
 
 Now that you're familar with the board, you should [assemble](assemble.md) it and connect it to your Raspberry Pi.

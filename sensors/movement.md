@@ -32,7 +32,9 @@ The three axes are:
 
 Watch this short [video](https://www.youtube.com/watch?v=pQ24NtnaLl8) that shows where these axes are in relation to a plane. Try to imagine the plane pointing in any random direction. To get the plane into that position, you can rotate it by a known amount around each axis to get it into the orientation that you imagined.
 
-Let's download and run a 3D demo program to explore this.
+![](images/orientation.png)
+
+The image above shows where these axes are in relation to the Astro Pi. Let's download and run a 3D demo program to explore this.
 
 ## Apollo Soyuz Demo
 

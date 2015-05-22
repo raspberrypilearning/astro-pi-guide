@@ -30,11 +30,13 @@ The three axes are:
 - **Roll** (the plane doing a victory roll)
 - **Yaw** (imagine steering the plane like a car)
 
-Watch this short [video](https://www.youtube.com/watch?v=pQ24NtnaLl8) that shows where these axes are in relation to a plane. Try to imagine the plane pointing in any random direction. To get the plane into that position, you can rotate it by a known amount around each axis to get it into the orientation that you imagined.
+Watch this short [video](https://www.youtube.com/watch?v=pQ24NtnaLl8) that shows where these axes are in relation to a plane. Try to imagine the plane pointing in any random direction. To get the plane into that position, you can rotate it by a known amount around each axis to get it to the orientation that you imagined.
 
 ![](images/orientation.png)
 
-The image above shows where these axes are in relation to the Astro Pi. Let's download and run a 3D demo program to explore this.
+The image above shows where these axes are in relation to the Astro Pi.
+
+Let's download and run a 3D demo program to explore this.
 
 ## Apollo Soyuz Demo
 
@@ -79,7 +81,7 @@ Press `Esc` to exit the demo. Let's try a simpler version of this ourselves in c
   
   o = ap.get_orientation()
   pitch, roll, yaw = o.values()
-  print(pitch, roll, yaw)
+  print("pitch %s roll %s yaw %s" % (pitch, yaw, roll))
   ```
 
 1. Select `File > Save` and choose a file name for your program.
@@ -101,3 +103,19 @@ Press `Esc` to exit the demo. Let's try a simpler version of this ourselves in c
   ```
 
 ## Monitor movement over time
+
+1. It would be good to monitor the axis values changing during movements, so let's put your code into a `while` loop and run it again:
+
+  ```python
+  while True:
+      o = ap.get_orientation()
+      pitch, roll, yaw = o.values()
+      
+      pitch = round(pitch, 1)
+      roll = round(roll, 1)
+      yaw = round(yaw, 1)
+      
+      print("pitch %s roll %s yaw %s" % (pitch, yaw, roll))
+  ```
+
+1. Move the Astro Pi around in your hand and you should see the numbers changing. See if you can just make one axis change by moving only in the pitch direction for example. Do this for all three axes.

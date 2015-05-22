@@ -91,10 +91,10 @@ Press `Esc` to exit the demo. Let's try a simpler version of this ourselves in c
   
   ```
   IMU Init Succeeded
-  (356.35723002363454, 303.4986602798494, 339.19880231669873)
+  pitch 356.35723002363454 roll 303.4986602798494 yaw 339.19880231669873
   ```
 
-1. We don't need all the numbers after the decimal point so let's round them off. Just before the `print(pitch, roll, yaw)` line, add these lines below:
+1. We don't need all the numbers after the decimal point so let's round them off. Just before the `print("pitch %s roll %s yaw %s" % (pitch, yaw, roll))` line, add these lines below:
 
   ```python
   pitch = round(pitch, 1)

@@ -83,7 +83,7 @@ Press `Esc` to exit the demo. Let's try a simpler version of this ourselves in c
   pitch = o["pitch"]
   roll = o["roll"]
   yaw = o["yaw"]
-  print("pitch %s roll %s yaw %s" % (pitch, yaw, roll))
+  print("pitch %s roll %s yaw %s" % (pitch, roll, yaw))
   ```
 
 1. Select `File > Save` and choose a file name for your program.
@@ -96,7 +96,7 @@ Press `Esc` to exit the demo. Let's try a simpler version of this ourselves in c
   pitch 356.35723002363454 roll 303.4986602798494 yaw 339.19880231669873
   ```
 
-1. We don't need all the numbers after the decimal point so let's round them off. Just before the `print("pitch %s roll %s yaw %s" % (pitch, yaw, roll))` line, add these lines below:
+1. We don't need all the numbers after the decimal point so let's round them off. Just before the `print("pitch %s roll %s yaw %s" % (pitch, roll, yaw))` line, add these lines below:
 
   ```python
   pitch = round(pitch, 1)
@@ -119,7 +119,7 @@ while True:
     roll = round(roll, 1)
     yaw = round(yaw, 1)
     
-    print("pitch %s roll %s yaw %s" % (pitch, yaw, roll))
+    print("pitch %s roll %s yaw %s" % (pitch, roll, yaw))
 ```
 
 1. Move the Astro Pi around in your hand and you should see the numbers changing. See if you can just make one axis change by moving only in the pitch direction for example. Do this for all three axes. Press `Ctrl - C` to stop the program.

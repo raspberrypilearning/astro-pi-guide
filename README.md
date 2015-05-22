@@ -11,7 +11,7 @@ This collection of guides and worksheets has been designed to provide you with a
 - [Software setup](software.md)
 - [Astro Pi: first program](program.md)
 - [Astro Pi Python Cheatsheet](files/AstroPi-Cheatsheet.pdf)
-- [Getting started with Astro Pi learn resource](http://raspberrypi.org/resources/learn/getting-started-with-astro-pi)
+- [Getting started with Astro Pi learn resource](http://raspberrypi.org/learning/getting-started-with-astro-pi)
 
 ## Sensors
 

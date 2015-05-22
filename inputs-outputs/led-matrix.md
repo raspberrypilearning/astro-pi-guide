@@ -51,7 +51,7 @@ This colour mixing system is used throughout the Astro Pi programming module. Yo
   ```python
   from astro_pi import AstroPi
   ap = AstroPi()
-  ap.show_message("Hello my name is Tim Peake", text_colour=(255, 0, 0), back_colour=(255,255,255))
+  ap.show_message("Hello my name is Tim Peake", text_colour=(255, 255, 0), back_colour=(0, 0, 255))
   ```
 
   *Note: The comma is important, don't forget it!*

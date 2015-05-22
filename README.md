@@ -1,6 +1,6 @@
 # A Guide to Astro Pi
 
-![Astro Pi Logo](images/Astro_Pi_Logo_WEB.png)
+![Astro Pi Cover Art](images/cover.png)
 
 This collection of guides and worksheets has been designed to provide you with a broad understanding of the Astro Pi HAT and its capabilities. They could be used by teachers and students who have just entered the Astro Pi [Secondary School competition](http://astro-pi.org/secondary-school-competition/), or by anyone wanting to make the most of their Astro Pi HAT. It will introduce you to what the board does, how to set it up, how to write your first program, and how to use the HAT's many features. 
 

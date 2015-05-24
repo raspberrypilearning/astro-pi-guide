@@ -1,6 +1,6 @@
 # The Joystick
 
-The Astro Pi joystick is mapped to the four keyboard cursor keys, with the mouse middle-click being mapped to the Return key. This means that moving the joystick has exactly the same effect as pressing those keys on the keyboard. Remember that the down direction is with the HDMI port facing downwards.
+The Astro Pi joystick is mapped to the four keyboard cursor keys, with the joystick middle-click being mapped to the Return key. This means that moving the joystick has exactly the same effect as pressing those keys on the keyboard. Remember that the down direction is with the HDMI port facing downwards.
 
   ![](images/cursor_keys.jpg)
   

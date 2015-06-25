@@ -25,7 +25,7 @@ These are the pin assignments:
   - A (left): GPIO 16, pin 36
   - B (right): GPIO: 21, pin 40
 
-You will need to comply with these in order for your code to *just work* on the flight hardware that Tim Peake will have on the ISS.
+If you use these buttons in your Astro Pi competition entry then you will need to comply with these pin assignments in order for your code to *just work* on the flight hardware that Tim Peake will have on the ISS.
   
 ## How to detect a button press
 

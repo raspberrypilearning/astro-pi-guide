@@ -60,7 +60,7 @@ The diagram below shows how to wire up the six buttons on a breadboard so that t
 1. Open **Python 3** from a terminal window as `sudo` by typing:
   
     ```bash
-    sudo idel3 &
+    sudo idle3 &
     ```
 
 1. A Python Shell window will now appear.

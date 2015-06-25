@@ -24,6 +24,7 @@ This collection of guides and worksheets has been designed to provide you with a
 
 - [Joystick](inputs-outputs/joystick.md)
 - [LED Matrix](inputs-outputs/led-matrix.md)
+- [Buttons](inputs-outputs/buttons.md)
 
 ## Learn more about Astro Pi
 

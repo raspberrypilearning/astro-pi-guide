@@ -131,7 +131,7 @@ The diagram below shows how to wire up the six buttons on a breadboard so that t
   ap.show_message("Here we go!")
   ```
   
-  When you press the *UP* button you should see there *Here we go* message.
+  When you press the *UP* button you should see the *Here we go* message.
 
 1. You might also want to test if a button is being held down and perhaps do something if it was held down for over 3 seconds? Here is another example:
 

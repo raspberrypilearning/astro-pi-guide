@@ -1,6 +1,6 @@
 # Flight Buttons
 
-The Astro Pi flight case as six general purpose buttons that you can also use in your programming. These are simply push buttons wired directly to GPIO pins in a pull up circuit, you can easily recreate this setup using a breadboard, some buttons and wires.
+The Astro Pi flight case has six general purpose buttons that you can also use in your programming. These are simply push buttons wired directly to GPIO pins in a pull up circuit, you can easily recreate this setup using a breadboard, some buttons and wires.
 
   ![](images/flight_buttons.jpg)
   
@@ -55,7 +55,7 @@ The diagram below shows how to wire up the six buttons on a breadboard so that t
   
   ![](images/buttons_GPIO_small.png)
 
-## Detect the button press in code
+## Detect a button press in code
 
 1. Open **Python 3** from a terminal window as `sudo` by typing:
   
@@ -70,6 +70,9 @@ The diagram below shows how to wire up the six buttons on a breadboard so that t
   ```python
   import RPi.GPIO as GPIO
   import time
+  from astro_pi import AstroPi
+  
+  ap = AstroPi()
   
   UP = 26
   DOWN = 13
@@ -82,7 +85,9 @@ The diagram below shows how to wire up the six buttons on a breadboard so that t
   
   def button_pressed(button):
       global running
+      global ap
       print(button)
+      ap.show_message(str(button))
       if button == B:
           running = False
 
@@ -95,8 +100,75 @@ The diagram below shows how to wire up the six buttons on a breadboard so that t
   while running:
       time.sleep(1)
   
-  print("Bye")
+  ap.show_message("Bye")
   ```
+
 1. Select `File > Save` and choose a file name for your program.
 1. Then select `Run > Run module`.
-1. This program will just display the corresponding GPIO number every time a button is pressed. If you press the **B** button (bottom pair, right) then the program ends.
+1. This program will just display the corresponding GPIO number every time a button is pressed. If you press the **B** button (bottom pair, right) then the program ends. This should allow you to test that your wiring is correct before proceeding.
+1. The code above makes the `button_pressed` function run whenever any button is pressed. However there are many different ways you can program the button detection. For instance you might want to make your code wait until a button is pressed before doing something. Here is an example of how to do that using the *UP* button: 
+
+  ```python
+  import RPi.GPIO as GPIO
+  from astro_pi import AstroPi
+  
+  ap = AstroPi()
+  
+  UP = 26
+  DOWN = 13
+  LEFT = 20
+  RIGHT = 19
+  A = 13
+  B = 21  
+  
+  GPIO.setmode(GPIO.BCM)
+  
+  for pin in [UP, DOWN, LEFT, RIGHT, A, B]:
+      GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+  
+  ap.show_message("Press UP to Start")
+  GPIO.wait_for_edge(UP, GPIO.FALLING)
+  ap.show_message("Here we go!")
+  ```
+  
+  When you press the *UP* button you should see there *Here we go* message.
+
+1. You might also want to test if a button is being held down and perhaps do something if it was held down for over 3 seconds? Here is another example:
+
+  ```python
+  import RPi.GPIO as GPIO
+  import time
+  from astro_pi import AstroPi
+  
+  ap = AstroPi()
+  
+  UP = 26
+  DOWN = 13
+  LEFT = 20
+  RIGHT = 19
+  A = 13
+  B = 21  
+  
+  GPIO.setmode(GPIO.BCM)
+  
+  for pin in [UP, DOWN, LEFT, RIGHT, A, B]:
+      GPIO.setup(pin, GPIO.IN)
+  
+  while GPIO.input(A) == GPIO.HIGH:  # wait while HIGH / not pressed
+      time.sleep(0.01)
+  
+  button_down_time = time.time()  #record the time when the button went down
+  
+  held_down = False
+  
+  while GPIO.input(A) == GPIO.LOW:  # wait while LOW / pressed
+      time.sleep(0.01)
+      if time.time() - button_down_time > 3:  # has 3 seconds gone by?
+          held_down = True
+          break
+  
+  if held_down:
+      ap.show_message("Here we go!")
+  ```
+  
+  When you hold down *A* for three seconds you should see the *Here we go* message.

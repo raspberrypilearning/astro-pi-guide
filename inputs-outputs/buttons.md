@@ -106,7 +106,7 @@ The diagram below shows how to wire up the six buttons on a breadboard so that t
 1. Select `File > Save` and choose a file name for your program.
 1. Then select `Run > Run module`.
 1. This program will just display the corresponding GPIO number every time a button is pressed. If you press the **B** button (bottom pair, right) then the program ends. This should allow you to test that your wiring is correct before proceeding.
-1. The code above makes the `button_pressed` function run whenever any button is pressed. However there are many different ways you can program the button detection. For instance you might want to make your code wait until a button is pressed before doing something. Here is an example of how to do that using the *UP* button: 
+1. The code above makes the `button_pressed` function run whenever any button is pressed. However there are many different ways you can program the button detection. For instance you might want to make your code wait until a button is pressed before doing something. Here is an example of how to do that using the **UP** button: 
 
     ```python
     import RPi.GPIO as GPIO
@@ -131,7 +131,7 @@ The diagram below shows how to wire up the six buttons on a breadboard so that t
     ap.show_message("Here we go!")
     ```
   
-    When you press the *UP* button you should see the *Here we go* message.
+    When you press the **UP** button you should see the **Here we go** message.
 
 1. You might also want to test if a button is being held down and perhaps do something if it was held down for over 3 seconds? Here is another example:
 
@@ -171,4 +171,4 @@ The diagram below shows how to wire up the six buttons on a breadboard so that t
         ap.show_message("Here we go!")
     ```
   
-    When you hold down *A* for three seconds you should see the *Here we go* message.
+    When you hold down **A** for three seconds you should see the **Here we go** message.

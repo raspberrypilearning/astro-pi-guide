@@ -29,7 +29,7 @@ You will need to comply with these in order for your code to *just work* on the 
   
 ## How to detect a button press
 
-GPIO pins can be set up as an input or an output. Output mode is used when you want to supply voltage to a device like an LED or buzzer. If we use input mode instead, a GPIO pin has a value that we can read in our code. If the pin has voltage going into it, the reading would be 1 (`HIGH`); if the pin was connected directly to ground (no voltage), the reading would be 0 (`LOW`).
+GPIO pins can be set up as an input or an output. Output mode is used when you want to supply voltage to a device like an LED or buzzer. With input mode, a GPIO pin has a value that we can read in our code. If the pin has voltage going into it, the reading would be 1 (`HIGH`); if the pin was connected directly to ground (no voltage), the reading would be 0 (`LOW`).
 
 The goal is to use a push button to switch voltage on and off for a GPIO pin, thus making the reading of the pin change in our code when we press the button.
 
@@ -49,7 +49,11 @@ All we now need to do is create the above circuit six times for each of the GPIO
   
 ## Breadboard Wiring
 
+The diagram below shows how to wire up the six buttons on a breadboard so that they match the flight hardware. As always, wire colour does not matter. The numbers next to each button indicate the GPIO number that they are connected to.
+
   ![](images/buttons_breadboard.png)
+  
+  ![](images/buttons_GPIO_small.png)
 
 ## Detect the button press in code
 

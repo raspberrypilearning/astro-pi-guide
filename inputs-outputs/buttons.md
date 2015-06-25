@@ -49,7 +49,7 @@ All we now need to do is create the above circuit six times for each of the GPIO
   
 ## Breadboard Wiring
 
-The diagram below shows how to wire up the six buttons on a breadboard so that they match the flight hardware. As always, wire colour does not matter. The numbers next to each button indicate the GPIO number that they are connected to. Every button requires a one side to be connected to ground so that the HIGH pin can be shorted to LOW when the button is pressed, these are the black wires.
+The diagram below shows how to wire up the six buttons on a breadboard so that they match the flight hardware. As always, wire colour does not matter. The numbers next to each button indicate the GPIO number that they are connected to. Every button requires a one side to be connected to ground so that the `HIGH` GPIO pin can be shorted to `LOW` when the button is pressed.
 
   ![](images/buttons_breadboard.png)
   
@@ -65,12 +65,38 @@ The diagram below shows how to wire up the six buttons on a breadboard so that t
   
 1. A Python Shell window will now appear.
 1. Select `File > New Window`.
-1. Type in the following code:
+1. Type in or copy/paste the following code:
 
   ```python
-  import
-  ```
+  import RPi.GPIO as GPIO
+  import time
+  
+  UP = 26
+  DOWN = 13
+  LEFT = 20
+  RIGHT = 19
+  A = 13
+  B = 21  
+  
+  running = True
+  
+  def button_pressed(button):
+      global running
+      print(button)
+      if button == B:
+          running = False
 
+  GPIO.setmode(GPIO.BCM)
+  
+  for pin in [UP, DOWN, LEFT, RIGHT, A, B]:
+      GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+      GPIO.add_event_detect(pin, GPIO.FALLING, callback=button_pressed, bouncetime=100)
+  
+  while running:
+      time.sleep(1)
+  
+  print("Bye")
+  ```
 1. Select `File > Save` and choose a file name for your program.
 1. Then select `Run > Run module`.
-  
+1. This program will just display the corresponding GPIO number every time a button is pressed. If you press the **B** button (bottom pair, right) then the program ends.

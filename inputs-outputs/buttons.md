@@ -1,6 +1,6 @@
 # Flight Buttons
 
-The Astro Pi flight case has six general purpose buttons that you can also use in your programming. These are simply push buttons wired directly to GPIO pins in a pull up circuit, you can easily recreate this setup using a breadboard, some buttons and wires.
+The Astro Pi flight case has six general purpose buttons that you can also use in your programming. These are simply push buttons wired directly to GPIO pins in a pull up circuit: you can easily recreate this setup using a breadboard, some buttons, and some wires.
 
 ![](images/flight_buttons.jpg)
   

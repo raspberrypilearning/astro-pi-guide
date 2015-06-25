@@ -10,9 +10,9 @@ The buttons are wired to the last six pins at the bottom of the GPIO header pins
 
 ![](images/buttons_GPIO.png)
   
-*Note the orientation of the pin diagram is with the Ethernet and USB ports facing downwards and the row of pins being on the right hand side of the Pi.*
+Note the orientation of the pin diagram is with the Ethernet and USB ports facing downwards and the row of pins on the right hand side of the Pi.
   
-This means that this set up cannot be exactly replicated if you're using an old Model A or B Pi. If this applies to you then you can just choose other pins but be sure to modify the pin numbering in your code so that it will work on a flight unit before you submit via the competition website.
+This means that this set up cannot be exactly replicated if you're using an old model A or B Pi. If you are using an older model, you can choose other pins but be sure to modify the pin numbering in your code so that it will work on a flight unit before you submit via the competition website.
 
 These are the pin assignments:
 
@@ -25,7 +25,7 @@ These are the pin assignments:
     - A (left): GPIO 16, pin 36
     - B (right): GPIO: 21, pin 40
 
-If you use these buttons in your Astro Pi competition entry then you will need to comply with these pin assignments in order for your code to *just work* on the flight hardware that Tim Peake will have on the ISS.
+If you use these buttons in your Astro Pi competition entry then you will need to comply with these pin assignments in order for your code to work on the flight hardware that Tim Peake will have on the ISS.
   
 ## How to detect a button press
 
@@ -33,17 +33,17 @@ GPIO pins can be set up as an input or an output. Output mode is used when you w
 
 The goal is to use a push button to switch voltage on and off for a GPIO pin, thus making the reading of the pin change in our code when we press the button.
 
-When a GPIO pin is in input mode the pin is said to be *floating*, meaning that it has no fixed voltage level. That's no good for what we want, as the pin will randomly float between `HIGH` and `LOW`. For this job, we need to know categorically whether the button is up or down. So we need to fix the voltage level to `HIGH` or `LOW`, and then make it change only when the button is pressed.
+When a GPIO pin is in input mode the pin is said to be **floating**, meaning that it has no fixed voltage level. That's no good for what we want, as the pin will randomly float between `HIGH` and `LOW`. For this job, we need to know categorically whether the button is up or down. So we need to fix the voltage level to `HIGH` or `LOW`, and then make it change only when the button is pressed.
 
-The flight hardware buttons are all wired in a *pull up* configuration. Which means we pull the GPIO to `HIGH` and only short it to `LOW` when we press the button.
+The flight hardware buttons are all wired in a **pull up** configuration. Which means we pull the GPIO to `HIGH` and only short it to `LOW` when we press the button.
 
 ![](images/pull_up.png)
   
 In the diagram above we wire the GPIO pin to 3.3 volts through a large 10k ohm resistor so that it always reads `HIGH`. Then we can short the pin to ground via the button, so that the pin will go `LOW` when you press it.
   
-So `HIGH` means button *up* and `LOW` means button *down*.
+So `HIGH` means button **up** and `LOW` means button **down**.
   
-Fortunately, the Raspberry Pi has all the above circuitry *built in* and we can select a pull up circuit in our code for each GPIO pin. This sets up some internal circuitry that is too small for us to see. So you can get away with just using two jumper wires here, although you're welcome to wire it up the way shown above if you wish.
+Fortunately, the Raspberry Pi has all the above circuitry built in, and we can select a pull up circuit in our code for each GPIO pin. This sets up some internal circuitry that is too small for us to see. So you can get away with just using two jumper wires here, although you're welcome to wire it up the way shown above if you wish.
 
 All we now need to do is create the above circuit six times for each of the GPIO pins.
   

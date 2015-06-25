@@ -49,7 +49,7 @@ All we now need to do is create the above circuit six times for each of the GPIO
   
 ## Breadboard Wiring
 
-The diagram below shows how to wire up the six buttons on a breadboard so that they match the flight hardware. As always, wire colour does not matter. The numbers next to each button indicate the GPIO number that they are connected to. Every button requires a one side to be connected to ground so that the `HIGH` GPIO pin can be shorted to `LOW` when the button is pressed.
+The diagram below shows how to wire up the six buttons on a breadboard so that they match the flight hardware. As always, wire colour does not matter. The numbers next to each button indicate the GPIO number that they are connected to. Every button requires one side to be connected to ground so that the `HIGH` GPIO pin can be shorted to `LOW` when the button is pressed.
 
   ![](images/buttons_breadboard.png)
   

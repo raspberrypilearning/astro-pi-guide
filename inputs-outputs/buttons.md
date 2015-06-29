@@ -170,7 +170,7 @@ The diagram below shows how to wire up the six buttons on a breadboard so that t
     while GPIO.input(A) == GPIO.HIGH:  # wait while HIGH / not pressed
         time.sleep(0.01)
     
-    button_down_time = time.time()  #record the time when the button went down
+    button_down_time = time.time()  # record the time when the button went down
     
     held_down = False
     

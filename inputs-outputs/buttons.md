@@ -152,7 +152,7 @@ The diagram below shows how to wire up the six buttons on a breadboard so that t
     GPIO.setmode(GPIO.BCM)
     
     for pin in [UP, DOWN, LEFT, RIGHT, A, B]:
-        GPIO.setup(pin, GPIO.IN)
+        GPIO.setup(pin, GPIO.IN, GPIO.PUD_UP)
     
     while GPIO.input(A) == GPIO.HIGH:  # wait while HIGH / not pressed
         time.sleep(0.01)
@@ -168,7 +168,10 @@ The diagram below shows how to wire up the six buttons on a breadboard so that t
             break
     
     if held_down:
+        print("Held down")
         ap.show_message("Here we go!")
+    else:
+        print("Not held down")
     ```
   
     When you hold down **A** for three seconds you should see the **Here we go** message.

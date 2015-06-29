@@ -3,6 +3,18 @@
 The Astro Pi flight case has six general-purpose buttons that you can also use in your programming. These are simply push buttons wired directly to GPIO pins in a pull up circuit: you can easily recreate this setup using a breadboard, some buttons, and some wires.
 
 ![](images/flight_buttons.jpg)
+
+## Required items
+
+In order to do this you will need access to the following items:
+
+- A breadboard
+- 6 tactile push buttons
+- 14 male to female jumper cables
+- A 40 (2 x 20) way GPIO stacking header (with the long pins)
+
+    Use this to mount the Astro Pi HAT onto the Raspberry Pi so that you'll have GPIO pins protruding through the HAT that jumper cables can be attached to.
+    Try [Toby Electronics](http://www.toby.co.uk/content/catalogue/products.aspx?series=REF-18xxxx-0x), part number REF-182684-02
   
 ## GPIO mapping
 

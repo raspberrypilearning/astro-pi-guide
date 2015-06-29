@@ -78,7 +78,7 @@ The diagram below shows how to wire up the six buttons on a breadboard so that t
     DOWN = 13
     LEFT = 20
     RIGHT = 19
-    A = 13
+    A = 16
     B = 21  
     
     running = True
@@ -118,7 +118,7 @@ The diagram below shows how to wire up the six buttons on a breadboard so that t
     DOWN = 13
     LEFT = 20
     RIGHT = 19
-    A = 13
+    A = 16
     B = 21  
     
     GPIO.setmode(GPIO.BCM)
@@ -146,7 +146,7 @@ The diagram below shows how to wire up the six buttons on a breadboard so that t
     DOWN = 13
     LEFT = 20
     RIGHT = 19
-    A = 13
+    A = 16
     B = 21  
     
     GPIO.setmode(GPIO.BCM)

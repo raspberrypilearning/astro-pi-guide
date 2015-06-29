@@ -13,7 +13,7 @@ In order to do this you will need access to the following items:
 - 14 male to female jumper cables
 - A 40 (2 x 20) way GPIO stacking header (with the long pins)
 
-    Use this to mount the Astro Pi HAT onto the Raspberry Pi so that you'll have GPIO pins protruding through the HAT that jumper cables can be attached to.
+    Use this to mount the Sense HAT onto the Raspberry Pi so that you'll have GPIO pins protruding through it so that jumper cables can be attached.
     Try [Toby Electronics](http://www.toby.co.uk/content/catalogue/products.aspx?series=REF-18xxxx-0x), part number REF-182684-02
   
 ## GPIO mapping

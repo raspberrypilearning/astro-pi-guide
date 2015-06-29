@@ -107,7 +107,7 @@ The diagram below shows how to wire up the six buttons on a breadboard so that t
     GPIO.setmode(GPIO.BCM)
     
     for pin in [UP, DOWN, LEFT, RIGHT, A, B]:
-        GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        GPIO.setup(pin, GPIO.IN, GPIO.PUD_UP)
         GPIO.add_event_detect(pin, GPIO.FALLING, callback=button_pressed, bouncetime=100)
     
     while running:
@@ -137,7 +137,7 @@ The diagram below shows how to wire up the six buttons on a breadboard so that t
     GPIO.setmode(GPIO.BCM)
     
     for pin in [UP, DOWN, LEFT, RIGHT, A, B]:
-        GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        GPIO.setup(pin, GPIO.IN, GPIO.PUD_UP)
     
     ap.show_message("Press UP to Start")
     GPIO.wait_for_edge(UP, GPIO.FALLING)

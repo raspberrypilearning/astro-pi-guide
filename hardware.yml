@@ -1,3 +1,2 @@
-- name: Astro Pi HAT
-  img: astro-pi
-  url: http://astro-pi.org/hardware/
+- name: Sense HAT
+  img: sense-hat

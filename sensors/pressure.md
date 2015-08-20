@@ -1,6 +1,6 @@
 # Pressure
 
-The Astro Pi HAT features a number of sensors, including a pressure sensor. 
+The Sense HAT features a number of sensors, including a pressure sensor. 
 
 ## What is pressure and how can it be measured?
 

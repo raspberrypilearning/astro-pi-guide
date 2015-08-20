@@ -6,7 +6,7 @@ This collection of guides and worksheets has been designed to provide you with a
 
 ## Getting Started
 
-- [Sense HAT: what is it?](board.md)
+- [Astro Pi: what is it?](board.md)
 - [Assemble the Sense HAT](assemble.md)
 - [Software setup](software.md)
 - [Astro Pi: first program](program.md)

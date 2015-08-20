@@ -1,6 +1,6 @@
 # Temperature
 
-The Astro Pi HAT features a number of sensors, including a temperature sensor.
+The Sense HAT features a number of sensors, including a temperature sensor.
 
   ![](images/thermometer.jpg)
 

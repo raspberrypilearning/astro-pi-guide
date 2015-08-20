@@ -1,8 +1,8 @@
-# Assemble the Astro Pi
+# Assemble the Sense HAT
 
-1. If you have not yet installed the Astro Pi HAT, now is the time to do so. Do this with the Raspberry Pi shut down, disconnected from the mains, and with all other cables disconnected.
+1. If you have not yet installed the Sense HAT, now is the time to do so. Do this with the Raspberry Pi shut down, disconnected from the mains, and with all other cables disconnected.
 
-1. The Astro Pi HAT comes in a silver anti-static bag, along with the following fixtures and fittings:
+1. The Sense HAT comes in a silver anti-static bag, along with the following fixtures and fittings:
 
   - 1 x GPIO pin extension header
   - 4 x Hexagon stand-offs (female-to-female)
@@ -18,7 +18,7 @@
 
 1. Screw the hexagon stand-offs to the Raspberry Pi itself, by threading the screws through from the bottom and turning the hexagon stand-offs between finger and thumb.
 
-1. Next, insert the Astro Pi HAT into the GPIO pin extension header. The corner holes should line up with the hexagon stand-offs.
+1. Next, insert the Sense HAT into the GPIO pin extension header. The corner holes should line up with the hexagon stand-offs.
 
 1. Lastly, put the remaining screws through from the top.
 
@@ -26,4 +26,4 @@
 
 ## What's Next?
 
-Now that you have assembled your Astro Pi board, you will need to complete the [Software setup](software.md).
+Now that you have assembled your Sense HAT board, you will need to complete the [Software setup](software.md).

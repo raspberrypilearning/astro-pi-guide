@@ -1,6 +1,6 @@
 # Astro Pi: what is it?
 
-The Astro Pi is a HAT board for the Raspberry Pi which has the ability to sense a wide variety of conditions and provide output via the built-in LED matrix. Two Astro Pis will be travelling to the International Space Station (ISS) with British ESA astronaut Tim Peake. You can find out more about the mission and the board by watching the official Astro Pi competition video:
+Astro Pi is a compeition and mission. Two Astro Pis will be travelling to the International Space Station (ISS) with British ESA astronaut Tim Peake. The Raspberry Pis will include an add on board called the Sense HAT which has the ability to sense a wide variety of conditions and provide output via the built-in LED matrix. You can find out more about the mission and the board by watching the official Astro Pi competition video:
 
 [![Astro Pi Competition](https://i.vimeocdn.com/video/504039170_640.webp)](https://vimeo.com/117274487)
 
@@ -10,9 +10,9 @@ Here is NASA astronaut Reid Wiseman giving a fly-through tour of the ISS:
 
 ## What's on the board?
 
-Let's take a tour of the main features of the Astro Pi sensor board:
+Let's take a tour of the main features of the Sense HAT board:
 
-  ![Astro Pi Board Features](images/astro_pi_features.jpg)
+  ![Sense HAT Features](images/astro_pi_features.jpg)
 
 The main features are highlighted in red.
 

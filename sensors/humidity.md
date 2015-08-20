@@ -1,6 +1,6 @@
 # Humidity
 
-The Astro Pi HAT features a number of sensors, one of which is a humidity sensor that measures the amount of water in the air. 
+The Sense HAT features a number of sensors, one of which is a humidity sensor that measures the amount of water in the air. 
 
 ## What does humidity mean?
 
@@ -113,4 +113,4 @@ Think about how you might use the matrix to display the humidity. One way is to 
       ap.set_pixels(pixels)
   ```
 
-*Note: Please note that it is possible to get a value higher than 100 from the humidity sensor.*
+**Note: Please note that it is possible to get a value higher than 100 from the humidity sensor.**

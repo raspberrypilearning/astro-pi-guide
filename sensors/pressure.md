@@ -74,7 +74,7 @@ Atmospheric pressure (also known as barometric pressure) is the pressure exerted
 
 ## The plastic bottle experiment
 
-The experiment involves sealing an Astro Pi inside a plastic bottle along with a mobile phone top up battery, and then blowing into the bottle to increase the air pressure. Someone with a good pair of lungs should easily be able to increase the pressure to about 1100 millibars inside the bottle. You'll first need to program the visual display. 
+The experiment involves sealing a Raspberry Pi fitted with a Sense HAT inside a plastic bottle along with a mobile phone top up battery, and then blowing into the bottle to increase the air pressure. Someone with a good pair of lungs should easily be able to increase the pressure to about 1100 millibars inside the bottle. You'll first need to program the visual display. 
 
 1. Watch [Dave Honess's video](https://www.youtube.com/watch?v=CHUukiKF3ew) about the plastic bottle experiment.
 1. Take an empty two litre plastic bottle, discard the lid, and cut it in half across the middle as shown:
@@ -84,9 +84,9 @@ The experiment involves sealing an Astro Pi inside a plastic bottle along with a
   Dry the inside of the bottle using a tissue or a dishcloth. Do not be tempted to use a heat gun or a hair dryer as they will warp the plastic.
 
 1. Do a fit test. Try to fit the upper half inside the bottom half to join it back together. If you blow into the bottle now you'll feel the air coming back at you through the gaps in the side; later you'll use tape to seal them. 
-1. Shut down the Astro Pi, leaving all the peripherals connected.
+1. Shut down the Raspberry Pi, leaving all the peripherals connected.
 1. Disconnect the power supply and replace it with the mobile top up battery.
-1. The Astro Pi should boot up as usual, allowing you to load up and run the code.
+1. The Pi should boot up as usual, allowing you to load up and run the code.
 1. Disconnect all the peripherals apart from the battery once the code is running, and put everything into the bottle. Make sure the top half goes inside the bottom half, so you'll feel the air coming back at you when you blow.
 
   ![](images/Astro_Pi_Diagrams-02.png)
@@ -99,7 +99,7 @@ The experiment involves sealing an Astro Pi inside a plastic bottle along with a
 
   ![](images/Astro_Pi_Diagrams-04.png)
 
-1. Be aware that the moisture in your breath will steam up the inside of the bottle, so stop before you make the Astro Pi damp.
+1. Be aware that the moisture in your breath will steam up the inside of the bottle, so stop before you make the Pi damp.
 1. Remove the tape and separate the two halves of the bottle if you need to change the code. Just reconnecting the peripherals to do a quick edit should work fine.
 
 

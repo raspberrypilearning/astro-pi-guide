@@ -1,6 +1,6 @@
 # Astro Pi: what is it?
 
-Astro Pi is a compeition and mission. Two Astro Pis will be travelling to the International Space Station (ISS) with British ESA astronaut Tim Peake. The Raspberry Pis will include an add on board called the Sense HAT which has the ability to sense a wide variety of conditions and provide output via the built-in LED matrix. You can find out more about the mission and the board by watching the official Astro Pi competition video:
+Astro Pi is a competition and a mission. Two Astro Pis will be travelling to the International Space Station (ISS) with British ESA astronaut Tim Peake. The Raspberry Pis will include an add on board called the Sense HAT which has the ability to sense a wide variety of conditions and provide output via the built-in LED matrix. You can find out more about the mission and the board by watching the official Astro Pi competition video:
 
 [![Astro Pi Competition](https://i.vimeocdn.com/video/504039170_640.webp)](https://vimeo.com/117274487)
 

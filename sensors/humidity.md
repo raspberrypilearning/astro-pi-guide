@@ -21,7 +21,7 @@ When you take a cold can or bottle out of the fridge you see water appearing on 
 
 A known amount of water vapour will result in different relative humidity readings, depending on the temperature of the air and the ability of the air to suspend it. So a low air temperature might give a high relative humidity reading because the air can't suspend much more water vapour. Increasing the temperature of the air and keeping the same amount of water vapour will cause the relative humidity reading to drop, because the maximum amount of water vapour that *could* be suspended has increased.
 
-The Astro Pi gives you the humidity measurement as *relative humidity*. This is why the humidity sensor also has a temperature sensor built in!
+The Sense HAT gives you the humidity measurement as relative humidity. This is why the humidity sensor also has a temperature sensor built in. 
 
 ## what is the current humidity?
 
@@ -113,4 +113,4 @@ Think about how you might use the matrix to display the humidity. One way is to 
       ap.set_pixels(pixels)
   ```
 
-**Note: Please note that it is possible to get a value higher than 100 from the humidity sensor.**
+**Please note that it is possible to get a value higher than 100 from the humidity sensor.**

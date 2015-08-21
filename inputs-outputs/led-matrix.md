@@ -1,6 +1,6 @@
 # LED Matrix
 
-The Astro Pi HAT LED matrix contains 64 multi-colour LEDs. Each of the 64 LEDs actually have three smaller LEDs inside them, one for each primary colour, just like a pixel on a TV.
+The Sense HAT LED matrix contains 64 multi-colour LEDs. Each of the 64 LEDs actually have three smaller LEDs inside them, one for each primary colour, just like a pixel on a TV.
 
 ## Simple colour mixing
 
@@ -62,7 +62,7 @@ This image shows the pixels on a laptop LCD screen. You can see that the pixels 
 
   ![](images/closeup_of_pixels.jpg)
 
-This is how all computer and smartphone screens work. If you want to make recognisable shapes on the LED matrix this is what you also need to do. You only have a resolution of 8 by 8 pixels to work with on the Astro Pi HAT LED matrix though, so you must make shapes and icons that will look quite blocky. This can be a nice challenge!
+This is how all computer and smartphone screens work. If you want to make recognisable shapes on the LED matrix this is what you also need to do. You only have a resolution of 8 by 8 pixels to work with on the Sense HAT LED matrix though, so you must make shapes and icons that will look quite blocky. This can be a nice challenge!
 
 1. Select `File > New Window`.
 1. Type in the following code:
@@ -155,10 +155,10 @@ You can even use more than two colours, like in this example of Steve from Minec
 
 Instead of setting the LED matrix, you may wish to use images which are loaded from files. This is a convenient option if you want to have lots of stock images, for example international flags. 
 
-1. Use any graphics editing tool (on Windows, OS X or Linux) to create the files. As long as they are saved onto the Astro Pi SD card as `JPEG` or `PNG`, and are 8 x 8 pixels in size, then they can be loaded directly to the LED matrix with a single command.
+1. Use any graphics editing tool (on Windows, OS X or Linux) to create the files. As long as they are saved onto the Raspberry Pi's SD card as `JPEG` or `PNG`, and are 8 x 8 pixels in size, then they can be loaded directly to the LED matrix with a single command.
 1. Open the *File Manager* on the Raspberry Pi using `Menu > Accessories > File Manager`.
 1. Browse into the `astro-pi-hat` folder followed by `examples`. There should be a file named `space_invader.png` which you can double-click. 
-1. Load the image onto the Astro Pi LED matrix by using the `load_image` function, which needs the file system path to the file you want to load. So for `space_invader.png` the full path is `/home/pi/astro-pi-hat/examples/space_invader.png`.
+1. Load the image onto the Sense Hat LED matrix by using the `load_image` function, which needs the file system path to the file you want to load. So for `space_invader.png` the full path is `/home/pi/astro-pi-hat/examples/space_invader.png`.
 
   Here is the code:
 

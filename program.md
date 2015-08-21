@@ -1,4 +1,4 @@
-# Astro Pi: first program
+# Sense HAT: first program
 
 Connect the Raspberry Pi peripherals (keyboard, mouse, monitor, and power), and log in using the following login information:
 

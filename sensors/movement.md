@@ -12,9 +12,7 @@ IMU stand for Inertial Measurement Unit. It's actually three sensors in one:
 
 ![](images/apollo_imu.jpg)
 
-Why is a movement sensor important, though? When you're up in space there is one question of absolute importance to which you must always know the answer:
-
-- **Which way am I pointing?**
+Why is a movement sensor important, though? When you're up in space there is one question of absolute importance to which you must always know the answer: **which way am I pointing?**
 
 If you don't know your orientation you are in big trouble, so an IMU sensor like this one is used on all manned and unmanned spacecraft to track movements and maintain an understanding of orientation. Even the earliest spacecraft had them. Ask your grandparents if they remember the [Apollo missions](http://en.wikipedia.org/wiki/Apollo_program) that landed humans on the surface of the moon.
 

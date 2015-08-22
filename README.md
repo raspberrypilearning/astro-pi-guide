@@ -29,7 +29,7 @@ This collection of guides and worksheets has been designed to provide you with a
 ## Learn more about Astro Pi
 
 - [The Official Astro Pi Website](http://astro-pi.org/)
-- Martin O'Hanlon has built a [virtual Astro Pi](http://www.stuffaboutcode.com/2015/05/interactive-minecraft-astro-pi.html)(Sense HAT) in Minecraft which you can interact with to explore the functionality of the board. 
+- Martin O'Hanlon has built a [virtual Astro Pi](http://www.stuffaboutcode.com/2015/05/interactive-minecraft-astro-pi.html) (Sense HAT) in Minecraft which you can interact with to explore the functionality of the board. 
 
 
 

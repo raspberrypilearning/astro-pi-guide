@@ -9,7 +9,7 @@ This collection of guides and worksheets has been designed to provide you with a
 - [Astro Pi: what is it?](board.md)
 - [Assemble the Sense HAT](assemble.md)
 - [Software setup](software.md)
-- [Astro Pi: first program](program.md)
+- [Sense HAT: first program](program.md)
 - [Astro Pi Python Cheatsheet](files/AstroPi-Cheatsheet.pdf)
 - [Getting started with Astro Pi learn resource](http://raspberrypi.org/learning/getting-started-with-astro-pi)
 

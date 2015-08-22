@@ -26,4 +26,4 @@
 
 ## What's Next?
 
-Now that you have assembled your Sense HAT board, you will need to complete the [Software setup](software.md).
+Now that you have fitted your Sense HAT boato your Raspberry Pi board, you will need to complete the [Software setup](software.md).

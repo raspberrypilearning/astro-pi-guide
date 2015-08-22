@@ -1,6 +1,6 @@
 # Movement
 
-The Astro Pi has a movement sensor called an IMU, which can measure the kind of movement it is experiencing.
+The Sense HAT has a movement sensor called an IMU, which can measure the kind of movement it is experiencing.
 
 ## What is an IMU?
 
@@ -12,13 +12,13 @@ IMU stand for *inertial measurement unit*. It's actually three sensors in one:
 
 ![](images/apollo_imu.jpg)
 
-Why is a movement sensor important, though? When you're up in space there is one question of absolute importance that you must *always* know the answer to:
+Why is a movement sensor important, though? When you're up in space there is one question of absolute importance to which you must always know the answer:
 
 - **Which way am I pointing?**
 
 If you don't know your orientation you are in big trouble, so an IMU sensor like this one is used on all manned and unmanned spacecraft to track movements and maintain an understanding of orientation. Even the earliest spacecraft had them. Ask your grandparents if they remember the [Apollo missions](http://en.wikipedia.org/wiki/Apollo_program) that landed humans on the surface of the moon.
 
-Above is a picture of the IMU sensor from the Apollo command module. You'll notice how big it is compared to the tiny black cube on the Astro Pi; that's the difference between 1975 and 2015 technology. Incidentally, the Astro Pi IMU is probably not as accurate as the Apollo one, however it *is* a million times cheaper!
+Above is a picture of the IMU sensor from the Apollo command module. You'll notice how big it is compared to the tiny black cube on the Astro Pi; that's the difference between 1975 and 2015 technology. Incidentally, the Astro Pi IMU is probably not as accurate as the Apollo one, however it is a million times cheaper!
 
 ## How is orientation represented?
 
@@ -34,7 +34,7 @@ Watch this short [video](https://www.youtube.com/watch?v=pQ24NtnaLl8) that shows
 
 ![](images/orientation.png)
 
-The image above shows where these axes are in relation to the Astro Pi.
+The image above shows where these axes are in relation to the Sense HAT.
 
 Let's download and run a 3D demo program to explore this.
 
@@ -44,7 +44,7 @@ The image below shows the Apollo Soyuz module that was used to take humans to th
 
 ![](images/apollo_soyuz.jpg)
 
-You will need to have your Astro Pi connected to the internet in order to download the required software.
+You will need to have your Raspberry Pi and Sense HAT connected to the internet in order to download the required software.
 
 Enter the commands below into a terminal window:
 
@@ -56,11 +56,11 @@ cd apollo-soyuz
 sudo ./soyuz.py
 ```
 
-Pi 1 users will have to wait 3 to 4 minutes for this to load. For Pi 2 users it's about 30 seconds. When you see the spacecraft appear on the screen start moving the Astro Pi around with your hands. The the main booster is where the SD card slot is on your Astro Pi.
+Pi 1 users will have to wait 3 to 4 minutes for this to load. For Pi 2 users it's about 30 seconds. When you see the spacecraft appear on the screen start moving the Raspberry Pi and Sense HAT around with your hands. The the main booster is where the SD card slot is on your Pi.
 
 See if you can get the spacecraft to do the pitch, roll and yaw movements. Refer back to the [video](https://www.youtube.com/watch?v=pQ24NtnaLl8) if you need to remind yourself which is which.
 
-The code behind this demo is basically calling the Astro Pi `get_orientation` function which accesses the IMU sensor. This then returns three angles between 0 and 360 degrees. One for each axis (pitch, roll and yaw). The spacecraft model is then rotated by those angles so that it points in the same direction. This is all repeating over and over very quickly to maintain the orientation of the model with what the IMU is reporting.
+The code behind this demo is basically calling the Sense HAT `get_orientation` function which accesses the IMU sensor. This then returns three angles between 0 and 360 degrees, one for each axis (pitch, roll and yaw). The spacecraft model is then rotated by those angles so that it points in the same direction. This is all repeating over and over very quickly to maintain the orientation of the model with what the IMU is reporting.
 
 Press `Esc` to exit the demo. Let's try a simpler version of this ourselves in code.
 
@@ -122,7 +122,7 @@ while True:
     print("pitch %s roll %s yaw %s" % (pitch, roll, yaw))
 ```
 
-1. Move the Astro Pi around in your hand and you should see the numbers changing. See if you can just make one axis change by moving only in the pitch direction for example. Do this for all three axes. Press `Ctrl - C` to stop the program.
+1. Move the Pi around in your hand and you should see the numbers changing. See if you can just make one axis change by moving only in the pitch direction for example. Do this for all three axes. Press `Ctrl - C` to stop the program.
 
 ## Display orientation on the LED matrix
 
@@ -151,7 +151,7 @@ while True:
   x = number % 8
   ```
   
-  For the `y` value you floor divide `//` the number by 8. This is Integer division and ignores the remainder. Then for the `x` value you do the modulus `%` of 8 which gives you *only* the remainder.
+  For the `y` value you floor divide `//` the number by 8. This is integer division and ignores the remainder. Then for the `x` value you do the modulus `%` of 8 which gives you **only** the remainder.
   
   For example (using the number 60 which is on the bottom row):
   - `60 // 8 = 7`
@@ -180,7 +180,7 @@ while True:
   length = len(edge)
   ```
   
-  So the length is 28. If we divide 28 by 360 we have a ratio between say the yaw measurement and the positions in our list (how far around the edge we are). We can then get the sequential pixel number *out of the list* at the calculated position, work out it's coordinate and then switch the LED on! Like this:
+  So the length is 28. If we divide 28 by 360 we have a ratio between, say, the yaw measurement and the positions in our list (how far around the edge we are). We can then get the sequential pixel number out of the list at the calculated position, work out its coordinate and then switch the LED on! Like this:
   
   ```python
   from astro_pi import AstroPi

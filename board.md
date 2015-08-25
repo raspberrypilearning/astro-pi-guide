@@ -10,9 +10,9 @@ Here is NASA astronaut Reid Wiseman giving a fly-through tour of the ISS:
 
 ## What's on the board?
 
-Let's take a tour of the main features of the Sense HAT board:
+Let's take a tour of the main features of the Sense HAT:
 
-  ![Sense HAT Features](images/astro_pi_features.jpg)
+  ![Sense HAT Features](images/sense-hat-features.jpg)
 
 The main features are highlighted in red.
 
@@ -28,4 +28,4 @@ So this is basically a movement sensor and will allow you to measure how you're 
 
 ## What's Next?
 
-Now that you're familar with the Sense HAT board, you should [assemble](assemble.md) it and connect it to your Raspberry Pi.
+Now that you're familiar with the Sense HAT board, you should [assemble](assemble.md) it and connect it to your Raspberry Pi.

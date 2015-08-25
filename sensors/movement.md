@@ -65,60 +65,63 @@ Press `Esc` to exit the demo. Let's try a simpler version of this ourselves in c
 ## Which way am I pointing?
 
 1. Open **Python 3** from a terminal window as `sudo` by typing:
-  
-  ```bash
-  sudo idel3 &
-  ```
+
+    ```bash
+    sudo idle3 &
+    ```
 
 1. Select `File > New Window` and enter the following code:
 
-  ```python
-  from astro_pi import AstroPi
-  ap = AstroPi()
-  ap.clear()
-  
-  o = ap.get_orientation()
-  pitch = o["pitch"]
-  roll = o["roll"]
-  yaw = o["yaw"]
-  print("pitch %s roll %s yaw %s" % (pitch, roll, yaw))
-  ```
+    ```python
+    from sense_hat import SenseHat
+    sense = SenseHat()
+    sense.clear()
+
+    o = sense.get_orientation()
+    pitch = o["pitch"]
+    roll = o["roll"]
+    yaw = o["yaw"]
+    print("pitch %s roll %s yaw %s" % (pitch, roll, yaw))
+    ```
 
 1. Select `File > Save` and choose a file name for your program.
+
 1. Select `Run > Run module`.
+
 1. If you see the error `IMU Init Failed, please run as root / use sudo` on the last line in red, it means you haven't followed the instructions above. Close everything and go back to step 1.
-1. You should now see something like this: 
-  
-  ```
-  IMU Init Succeeded
-  pitch 356.35723002363454 roll 303.4986602798494 yaw 339.19880231669873
-  ```
+
+1. You should now see something like this:
+
+    ```
+    IMU Init Succeeded
+    pitch 356.35723002363454 roll 303.4986602798494 yaw 339.19880231669873
+    ```
 
 1. We don't need all the numbers after the decimal point so let's round them off. Just before the `print("pitch %s roll %s yaw %s" % (pitch, roll, yaw))` line, add these lines below:
 
-  ```python
-  pitch = round(pitch, 1)
-  roll = round(roll, 1)
-  yaw = round(yaw, 1)
-  ```
+    ```python
+    pitch = round(pitch, 1)
+    roll = round(roll, 1)
+    yaw = round(yaw, 1)
+    ```
 
 ## Monitor movement over time
 
 1. It would be good to monitor the axis values changing during movements, so let's put your code into a `while` loop and run it again:
 
-```python
-while True:
-    o = ap.get_orientation()
-    pitch = o["pitch"]
-    roll = o["roll"]
-    yaw = o["yaw"]
-    
-    pitch = round(pitch, 1)
-    roll = round(roll, 1)
-    yaw = round(yaw, 1)
-    
-    print("pitch %s roll %s yaw %s" % (pitch, roll, yaw))
-```
+    ```python
+    while True:
+        o = sense.get_orientation()
+        pitch = o["pitch"]
+        roll = o["roll"]
+        yaw = o["yaw"]
+
+        pitch = round(pitch, 1)
+        roll = round(roll, 1)
+        yaw = round(yaw, 1)
+
+        print("pitch %s roll %s yaw %s" % (pitch, roll, yaw))
+    ```
 
 1. Move the Pi around in your hand and you should see the numbers changing. See if you can just make one axis change by moving only in the pitch direction for example. Do this for all three axes. Press `Ctrl - C` to stop the program.
 
@@ -126,83 +129,84 @@ while True:
 
 1. Displaying something which is 3D in a 2D way is always a challenge, especially when your screen is only 8 x 8 pixels in size. One way which might work well is to have one LED for each axis and then make them move in different ways. For example:
 
-  - The pitch LED could go up and down
-  - The roll LED could go side to side
-  - The yaw LED could chase around the edge
+    - The pitch LED could go up and down
+    - The roll LED could go side to side
+    - The yaw LED could chase around the edge
 
 1. Here is a clever trick you can do. The table below shows the sequential LED numbers laid out in horizontal rows.
 
-  0 |  1 |  2 |  3 |  4 |  5 |  6 |  7
-  --- | --- | --- | --- | --- | --- | --- | ---
-  8 |  9 | 10 | 11 | 12 | 13 | 14 | 15
-  16 | 17 | 18 | 19 | 20 | 21 | 22 | 23
-  24 | 25 | 26 | 27 | 28 | 29 | 30 | 31
-  32 | 33 | 34 | 35 | 36 | 37 | 38 | 39
-  40 | 41 | 42 | 43 | 44 | 45 | 46 | 47
-  48 | 49 | 50 | 51 | 52 | 53 | 54 | 55
-  56 | 57 | 58 | 59 | 60 | 61 | 62 | 63
-  
-  For any of those numbers you can convert them into their X Y coordinate using the code below.
-  
-  ```python
-  y = number // 8
-  x = number % 8
-  ```
-  
-  For the `y` value you floor divide `//` the number by 8. This is integer division and ignores the remainder. Then for the `x` value you do the modulus `%` of 8 which gives you **only** the remainder.
-  
-  For example (using the number 60 which is on the bottom row):
-  - `60 // 8 = 7`
-  - `60 % 8 = 4`
-  
+    0 |  1 |  2 |  3 |  4 |  5 |  6 |  7
+    --- | --- | --- | --- | --- | --- | --- | ---
+    8 |  9 | 10 | 11 | 12 | 13 | 14 | 15
+    16 | 17 | 18 | 19 | 20 | 21 | 22 | 23
+    24 | 25 | 26 | 27 | 28 | 29 | 30 | 31
+    32 | 33 | 34 | 35 | 36 | 37 | 38 | 39
+    40 | 41 | 42 | 43 | 44 | 45 | 46 | 47
+    48 | 49 | 50 | 51 | 52 | 53 | 54 | 55
+    56 | 57 | 58 | 59 | 60 | 61 | 62 | 63
+
+    For any of those numbers you can convert them into their X Y coordinate using the code below.
+
+    ```python
+    y = number // 8
+    x = number % 8
+    ```
+
+    For the `y` value you floor divide `//` the number by 8. This is integer division and ignores the remainder. Then for the `x` value you do the modulus `%` of 8 which gives you **only** the remainder.
+
+    For example (using the number 60 which is on the bottom row):
+    - `60 // 8 = 7`
+    - `60 % 8 = 4`
+
 1. Try this code:
 
-  ```python
-  number = 60
-  
-  y = number // 8
-  x = number % 8
-  
-  ap.set_pixel(x, y, 255, 255, 255)
-  ```
+    ```python
+    number = 60
+
+    y = number // 8
+    x = number % 8
+
+    sense.set_pixel(x, y, 255, 255, 255)
+    ```
 
 1. The clever trick is to make a list containing the LED numbers for the path you want it to move back and forth through. So say you want to make an LED chase around the edge you would read the numbers accross the top of the table, down the right hand side, backwards along to bottom and up the left side. So it would be:
 
-  ```python
-  edge = [0, 1, 2, 3, 4, 5, 6, 7, 15, 23, 31, 39, 47, 55, 63, 62, 61, 60, 59, 58, 57, 56, 48, 40, 32, 24, 16, 8]
-  ```
-  
-  We can then find the length of the list using the `len` function:
-  
-  ```python
-  length = len(edge)
-  ```
-  
-  So the length is 28. If we divide 28 by 360 we have a ratio between, say, the yaw measurement and the positions in our list (how far around the edge we are). We can then get the sequential pixel number out of the list at the calculated position, work out its coordinate and then switch the LED on! Like this:
-  
-  ```python
-  from astro_pi import AstroPi
-  ap = AstroPi()
-  ap.clear()
-  
-  edge = [0, 1, 2, 3, 4, 5, 6, 7, 15, 23, 31, 39, 47, 55, 63, 62, 61, 60, 59, 58, 57, 56, 48, 40, 32, 24, 16, 8]
-  length = len(edge)
-  ratio = length / 360.0
-  
-  while True:
-      o = ap.get_orientation()
-      pitch = o["pitch"]
-      roll = o["roll"]
-      yaw = o["yaw"]
-      
-      yaw_list_position = int(yaw * ratio)
-      
-      yaw_pixel_number = edge[yaw_list_position]
-      
-      y = yaw_pixel_number // 8
-      x = yaw_pixel_number % 8
-      
-      ap.set_pixel(x, y, 255, 255, 255)
-  ```
+    ```python
+    edge = [0, 1, 2, 3, 4, 5, 6, 7, 15, 23, 31, 39, 47, 55, 63, 62, 61, 60, 59, 58, 57, 56, 48, 40, 32, 24, 16, 8]
+    ```
+
+    We can then find the length of the list using the `len` function:
+
+    ```python
+    length = len(edge)
+    ```
+
+    So the length is 28. If we divide 28 by 360 we have a ratio between, say, the yaw measurement and the positions in our list (how far around the edge we are). We can then get the sequential pixel number out of the list at the calculated position, work out its coordinate and then switch the LED on! Like this:
+
+    ```python
+    from sense_hat import SenseHat
+
+    sense = SenseHat()
+    sense.clear()
+
+    edge = [0, 1, 2, 3, 4, 5, 6, 7, 15, 23, 31, 39, 47, 55, 63, 62, 61, 60, 59, 58, 57, 56, 48, 40, 32, 24, 16, 8]
+    length = len(edge)
+    ratio = length / 360.0
+
+    while True:
+        o = sense.get_orientation()
+        pitch = o["pitch"]
+        roll = o["roll"]
+        yaw = o["yaw"]
+
+        yaw_list_position = int(yaw * ratio)
+
+        yaw_pixel_number = edge[yaw_list_position]
+
+        y = yaw_pixel_number // 8
+        x = yaw_pixel_number % 8
+
+        sense.set_pixel(x, y, 255, 255, 255)
+    ```
 
 1. What you'll notice is that the above code only turns LEDs on, you'll need to figure out how to turn them off yourself. Try having a variable for the previous `x` and `y` from the last time around the loop and if this is different from the new `x` and `y` you use `set_pixel` to set the LED to black.

@@ -9,10 +9,10 @@
   - 8 x M2.5 screws
 
   Check that these are all present before proceeding.
-  
+
 1. This diagram shows how it all fits together.
 
-  ![](images/Astro_Pi_Diagram.jpg)
+  ![](images/sense-hat-assembly.jpg)
 
 1. First, put the GPIO extension header block onto the Raspberry Pi GPIO pins.
 
@@ -24,6 +24,6 @@
 
 1. Use a small Phillips screwdriver to tighten each corner stand-off individually. They don't need to be especially tight, just enough to ensure that the HAT doesn't become loose.
 
-## What's Next?
+## What next?
 
-Now that you have fitted your Sense HAT boato your Raspberry Pi board, you will need to complete the [Software setup](software.md).
+Now that you have fitted your Sense HAT onto your Raspberry Pi, you will need to complete the [Software setup](software.md).

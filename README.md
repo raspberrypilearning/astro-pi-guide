@@ -10,7 +10,7 @@ This collection of guides and worksheets has been designed to provide you with a
 - [Assemble the Sense HAT](assemble.md)
 - [Software setup](software.md)
 - [Sense HAT: first program](program.md)
-- [Astro Pi Python Cheatsheet](files/AstroPi-Cheatsheet.pdf)
+- [Sense HAT Python Cheatsheet](files/SenseHAT-Cheatsheet.pdf)
 - [Getting started with Astro Pi learn resource](https://www.raspberrypi.org/learning/getting-started-with-astro-pi)
 
 ## Sensors

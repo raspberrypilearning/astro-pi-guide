@@ -12,7 +12,7 @@
 
 1. This diagram shows how it all fits together.
 
-  ![](images/sense-hat-assembly.jpg)
+  ![](images/sense-hat-assembly.png)
 
 1. First, put the GPIO extension header block onto the Raspberry Pi GPIO pins.
 

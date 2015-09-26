@@ -123,14 +123,14 @@ Consider how a joystick might work. You can use the LED matrix to help you think
             if event.type == KEYDOWN:
                 sense.set_pixel(x, y, 0, 0, 0)  # Black 0,0,0 means OFF
 
-            if event.key == K_DOWN and y < 7:
-                y = y + 1
-            elif event.key == K_UP and y > 0:
-                y = y - 1
-            elif event.key == K_RIGHT and x < 7:
-                x = x + 1
-            elif event.key == K_LEFT and x > 0:
-                x = x - 1
+                if event.key == K_DOWN and y < 7:
+                    y = y + 1
+                elif event.key == K_UP and y > 0:
+                    y = y - 1
+                elif event.key == K_RIGHT and x < 7:
+                    x = x + 1
+                elif event.key == K_LEFT and x > 0:
+                    x = x - 1
 
             sense.set_pixel(x, y, 255, 255, 255)
             if event.type == QUIT:

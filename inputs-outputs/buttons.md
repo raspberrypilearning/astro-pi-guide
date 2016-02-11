@@ -52,7 +52,7 @@ The diagram below shows how to wire up the six buttons on a breadboard so that t
 
 You might be expecting to use the `RPi.GPIO` or `gpiozero` libraries to detect the button presses. You *could* do it this way but this makes it difficult when you want your code to handle [joystick](joystick.md) *and* button events at the same time. To make it easier there is a device tree overlay that causes the buttons to type `u`, `d`, `l`, `r`, `a` and `b` when you press them.
 
-This is how the Astro Pis on the ISS work and it's the way we recommend your code is written if you're participating in a competition.
+**This is how the Astro Pis on the ISS work and it's the way we recommend your code is written if you're participating in a competition.**
 
 Once you have all the buttons wired up, start up your Raspberry Pi with a monitor, keyboard and mouse connected. We need to download some files and change a few configuration settings. Firstly, download the device tree overlay that maps the push buttons to corresponding keyboard keys. Open a terminal and enter these commands:
 
@@ -95,7 +95,7 @@ chmod +x pygame_test.py
 
 Waggle the joystick and press all the push buttons. If everything is working, the joystick should give a direction indication and the buttons will show the corresponding letter on the LED matrix. Press `Escape` to exit.
 
-The flight unit uses hardware pull ups on the GPIO pins; however, this test code enables the Raspberry Pi's own internal pull up resistors so your button wiring can be nice and simple. Because of this, you will also need to set the internal pull ups in any Astro Pi code that you write. The block of code below will do this for you; just make sure you have this at the top of each program you write.
+The flight unit uses hardware pull ups resistors on the GPIO pins; however, this test code enables the Raspberry Pi's own internal pull up resistors so your button wiring can be nice and simple. Because of this, you will also need to set the internal pull ups in any Astro Pi code that you write. The block of code below will do this for you; just make sure you have this at the top of each program you write.
 
 ```python
 import RPi.GPIO as GPIO

@@ -107,7 +107,7 @@ chmod +x pygame_test.py
 
 Waggle the joystick and press all the push buttons. If everything is working, the joystick should give a direction indication and the buttons will show the corresponding letter on the LED matrix. Press `Escape` to exit.
 
-The flight unit uses hardware pull ups resistors on the GPIO pins; however, this test code enables the Raspberry Pi's own internal pull up resistors so your button wiring can be nice and simple. Because of this, you will also need to set the internal pull ups in any Astro Pi code that you write. The block of code below will do this for you; just make sure you have this at the top of each program you write.
+The flight unit uses hardware pull up resistors on the GPIO pins; however, this test code enables the Raspberry Pi's own internal pull ups so your button wiring can be nice and simple. Because of this, you will also need to set the internal pull ups in any Astro Pi code that you write. The block of code below will do this for you; just make sure you have this at the top of each program you write.
 
 ```python
 import RPi.GPIO as GPIO

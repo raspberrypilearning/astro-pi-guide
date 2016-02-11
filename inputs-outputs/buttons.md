@@ -42,6 +42,18 @@ If you use these buttons in your Astro Pi competition entry, then you will need 
 
 ## Breadboard wiring
 
+GPIO pins can be set up as an input or an output. Output mode is used when you want to supply voltage to a device like an LED or buzzer. With input mode, a GPIO pin has a value that we can read in our code. If the pin has voltage going into it, the reading would be 1 (`HIGH`); if the pin was connected directly to ground (no voltage), the reading would be 0 (`LOW`).
+
+The goal is to use a push button to switch voltage on and off for a GPIO pin, thus making the pin's reading change in our code when we press the button.
+
+When a GPIO pin is in input mode the pin is said to be **floating**, meaning that it has no fixed voltage level. That's no good for what we want, as the pin will randomly float between `HIGH` and `LOW`. For this job, we need to know categorically whether the button is up or down, so we need to fix the voltage level to `HIGH` or `LOW`, and then make it change only when the button is pressed.
+
+The flight hardware buttons are all wired in a **pull up** configuration, which means we pull the GPIO to `HIGH` and only short it to `LOW` when we press the button.
+
+So `HIGH` means button **up** and `LOW` means button **down**.
+
+Fortunately, the Raspberry Pi has all the required circuitry built in; we can select a **pull up** configuration in our code for each GPIO pin, which sets up some internal circuitry that is too small for us to see. So you can get away with just using two jumper wires per button here.
+
 The diagram below shows how to wire up the six buttons on a breadboard so that they match the flight hardware. As always, wire colour does not matter. The numbers next to each button indicate the GPIO number that they are connected to. Every button requires one side to be connected to ground so that the `HIGH` GPIO pin can be shorted to `LOW` when the button is pressed.
 
 ![](images/buttons_breadboard.png)

@@ -62,9 +62,9 @@ The diagram below shows how to wire up the six buttons on a breadboard so that t
 
 ## Detect a button press in code
 
-You might be expecting to use the `RPi.GPIO` or `gpiozero` libraries to detect the button presses. You *could* do it this way but this makes it difficult when you want your code to handle [joystick](joystick.md) *and* button events at the same time. To make it easier there is a device tree overlay that causes the buttons to type `u`, `d`, `l`, `r`, `a` and `b` when you press them.
+You might be expecting to use the `RPi.GPIO` or `gpiozero` libraries to detect the button presses. You *could* do it this way but this makes it difficult when you want your code to handle [joystick](joystick.md) *and* button events at the same time. To make it easier there is a device tree overlay that causes the buttons to type `u`, `d`, `l`, `r`, `a` and `b` (up, down, left, right, a, b) when you press them.
 
-**This is how the Astro Pis on the ISS work and it's the way we recommend your code is written if you're participating in a competition.**
+**This is how the Astro Pis on the ISS work and it's the way we recommend your code behaves if you're participating in a competition.**
 
 Once you have all the buttons wired up, start up your Raspberry Pi with a monitor, keyboard and mouse connected. We need to download some files and change a few configuration settings. Firstly, download the device tree overlay that maps the push buttons to corresponding keyboard keys. Open a terminal and enter these commands:
 
@@ -124,3 +124,73 @@ GPIO.setmode(GPIO.BCM)
 for pin in [UP, DOWN, LEFT, RIGHT, A, B]:
     GPIO.setup(pin, GPIO.IN, GPIO.PUD_UP)
 ```
+
+## Try it yourself
+
+1. Open **Python 3** from a terminal window as `sudo` by typing:
+
+    ```bash
+    sudo idle3 &
+    ```
+
+1. A Python Shell window will now appear.
+
+1. Select `File > New Window`.
+
+1. Type in the following code:
+
+    Notice that we've got the code at the top that sets up the pull up resistors on the GPIO pins. But further down we're just looking for keyboard keys being pressed which is what the device tree overlay `astropi-keys.dtb` does.
+
+    ```python
+    import pygame
+    import RPi.GPIO as GPIO
+    
+    from pygame.locals import *
+    from sense_hat import SenseHat
+    
+    UP = 26
+    DOWN = 13
+    LEFT = 20
+    RIGHT = 19
+    A = 16
+    B = 21
+    
+    GPIO.setmode(GPIO.BCM)
+    
+    for pin in [UP, DOWN, LEFT, RIGHT, A, B]:
+        GPIO.setup(pin, GPIO.IN, GPIO.PUD_UP)
+    
+    pygame.init()
+    pygame.display.set_mode((640, 480))
+    
+    sense = SenseHat()
+    sense.clear()
+    
+    running = True
+    
+    while running:
+        for event in pygame.event.get():
+            if event.type == KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    running = False
+                elif event.key == pygame.K_u:
+                    sense.clear(255, 0, 0)
+                elif event.key == pygame.K_d:
+                    sense.clear(0, 255, 0)
+                elif event.key == pygame.K_l:
+                    sense.clear(0, 0, 255)
+                elif event.key == pygame.K_r:
+                    sense.clear(255, 255, 0)
+                elif event.key == pygame.K_a:
+                    sense.clear(255, 0, 255)
+                elif event.key == pygame.K_b:
+                    sense.clear(0, 255, 255)
+            if event.type == QUIT:
+                running = False
+    ```
+
+1. Select `File > Save` and choose a file name for your program.
+
+1. Then select `Run > Run module`.
+
+1. The LED matrix should change to a different colour when each button is pressed. Press `Escape` to exit.

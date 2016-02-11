@@ -40,26 +40,6 @@ These are the pin assignments:
 
 If you use these buttons in your Astro Pi competition entry, then you will need to comply with these pin assignments in order for your code to work on the flight hardware that Tim Peake will have on the ISS.
 
-## How to detect a button press
-
-GPIO pins can be set up as an input or an output. Output mode is used when you want to supply voltage to a device like an LED or buzzer. With input mode, a GPIO pin has a value that we can read in our code. If the pin has voltage going into it, the reading would be 1 (`HIGH`); if the pin was connected directly to ground (no voltage), the reading would be 0 (`LOW`).
-
-The goal is to use a push button to switch voltage on and off for a GPIO pin, thus making the pin's reading change in our code when we press the button.
-
-When a GPIO pin is in input mode the pin is said to be **floating**, meaning that it has no fixed voltage level. That's no good for what we want, as the pin will randomly float between `HIGH` and `LOW`. For this job, we need to know categorically whether the button is up or down, so we need to fix the voltage level to `HIGH` or `LOW`, and then make it change only when the button is pressed.
-
-The flight hardware buttons are all wired in a **pull up** configuration, which means we pull the GPIO to `HIGH` and only short it to `LOW` when we press the button.
-
-![](images/pull_up.png)
-
-In the diagram above we wire the GPIO pin to 3.3 volts through a large 10k ohm resistor so that it always reads `HIGH`. Then we can short the pin to ground via the button, so that the pin will go `LOW` when you press it.
-
-So `HIGH` means button **up** and `LOW` means button **down**.
-
-Fortunately, the Raspberry Pi has all the above circuitry built in; we can select a pull up circuit in our code for each GPIO pin, which sets up some internal circuitry that is too small for us to see. So you can get away with just using two jumper wires here, although you're welcome to wire it up the way shown above if you wish.
-
-All we now need to do is create the above circuit six times for each of the GPIO pins.
-
 ## Breadboard wiring
 
 The diagram below shows how to wire up the six buttons on a breadboard so that they match the flight hardware. As always, wire colour does not matter. The numbers next to each button indicate the GPIO number that they are connected to. Every button requires one side to be connected to ground so that the `HIGH` GPIO pin can be shorted to `LOW` when the button is pressed.
@@ -70,123 +50,65 @@ The diagram below shows how to wire up the six buttons on a breadboard so that t
 
 ## Detect a button press in code
 
-1. Open **Python 3** from a terminal window as `sudo` by typing:
+You might be expecting to use the `RPi.GPIO` or `gpiozero` libraries to detect the button presses. You *could* do it this way but this makes it difficult when you want your code to handle [joystick](joystick.md) *and* button events at the same time. To make it easier there is a device tree overlay that causes the buttons to type `u`, `d`, `l`, `r`, `a` and `b` when you press them.
 
-    ```bash
-    sudo idle3 &
-    ```
+This is how the Astro Pis on the ISS work and it's the way we recommend your code is written if you're participating in a competition.
 
-1. A Python Shell window will now appear.
+Once you have all the buttons wired up, start up your Raspberry Pi with a monitor, keyboard and mouse connected. We need to download some files and change a few configuration settings. Firstly, download the device tree overlay that maps the push buttons to corresponding keyboard keys. Open a terminal and enter these commands:
 
-1. Select `File > New Window`.
+```bash
+cd /boot/overlays
+sudo wget https://github.com/raspberrypilearning/astro-pi-guide/raw/master/inputs-outputs/dtb/astropi-keys.dtb --no-check-certificate
+ls
+```
 
-1. Type in or copy/paste the following code:
+Check that the file `astropi-keys.dtb` is now showing in the list of files.
 
-    ```python
-    import RPi.GPIO as GPIO
-    import time
-    from sense_hat import SenseHat
+Next, we need to configure `config.txt` to load this overlay:
 
-    sense = SenseHat()
+```bash
+sudo nano /boot/config.txt
+```
 
-    UP = 26
-    DOWN = 13
-    LEFT = 20
-    RIGHT = 19
-    A = 16
-    B = 21  
+Go to the bottom of the file and enter the line below:
 
-    running = True
+```bash
+dtoverlay=astropi-keys
+```
 
-    def button_pressed(button):
-        global running
-        global sense
-        print(button)
-        sense.show_message(str(button))
-        if button == B:
-            running = False
+Press `Ctrl - O` then `Enter` to save, followed by `Ctrl - X` to quit.
 
-    GPIO.setmode(GPIO.BCM)
+Now reboot the Astro Pi.
 
-    for pin in [UP, DOWN, LEFT, RIGHT, A, B]:
-        GPIO.setup(pin, GPIO.IN, GPIO.PUD_UP)
-        GPIO.add_event_detect(pin, GPIO.FALLING, callback=button_pressed, bouncetime=100)
+```bash
+sudo reboot
+```
 
-    while running:
-        time.sleep(1)
+Now let's download and run a Python test program to check everything is working. The test code uses [Pygame](http://pygame.org/wiki/tutorials), so please do this on the Raspberry Pi's own screen and not via remote access. Open a terminal and enter these commands:
 
-    sense.show_message("Bye")
-    ```
+```bash
+cd ~
+wget https://github.com/raspberrypilearning/astro-pi-guide/raw/master/inputs-outputs/test_code/pygame_test.py --no-check-certificate
+chmod +x pygame_test.py
+./pygame_test.py
+```
 
-1. Select `File > Save` and choose a file name for your program.
-1. Then select `Run > Run module`.
-1. This program will just display the corresponding GPIO number every time a button is pressed. If you press the **B** button (bottom pair, right) then the program ends. This should allow you to test that your wiring is correct before proceeding.
-1. The code above makes the `button_pressed` function run whenever any button is pressed. However, there are many different ways you can program the button detection. For instance, you might want to make your code wait until a button is pressed before doing something. Here is an example of how to do that using the **UP** button:
+Waggle the joystick and press all the push buttons. If everything is working, the joystick should give a direction indication and the buttons will show the corresponding letter on the LED matrix. Press `Escape` to exit.
 
-    ```python
-    import RPi.GPIO as GPIO
-    from sense_hat import SenseHat
+The flight unit uses hardware pull ups on the GPIO pins; however, this test code enables the Raspberry Pi's own internal pull up resistors so your button wiring can be nice and simple. Because of this, you will also need to set the internal pull ups in any Astro Pi code that you write. The block of code below will do this for you; just make sure you have this at the top of each program you write.
 
-    sense = SenseHat()
+```python
+import RPi.GPIO as GPIO
 
-    UP = 26
-    DOWN = 13
-    LEFT = 20
-    RIGHT = 19
-    A = 16
-    B = 21  
+UP = 26
+DOWN = 13
+LEFT = 20
+RIGHT = 19
+A = 16
+B = 21
 
-    GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BCM)
 
-    for pin in [UP, DOWN, LEFT, RIGHT, A, B]:
-        GPIO.setup(pin, GPIO.IN, GPIO.PUD_UP)
-
-    sense.show_message("Press UP to Start")
-    GPIO.wait_for_edge(UP, GPIO.FALLING)
-    sense.show_message("Here we go!")
-    ```
-
-    When you press the **UP** button you should see the **Here we go** message.
-
-1. You might also want to test if a button is being held down and perhaps do something if it was held down for over 3 seconds. Here is another example:
-
-    ```python
-    import RPi.GPIO as GPIO
-    import time
-    from sense_hat import SenseHat
-
-    sense = SenseHat()
-
-    UP = 26
-    DOWN = 13
-    LEFT = 20
-    RIGHT = 19
-    A = 16
-    B = 21  
-
-    GPIO.setmode(GPIO.BCM)
-
-    for pin in [UP, DOWN, LEFT, RIGHT, A, B]:
-        GPIO.setup(pin, GPIO.IN, GPIO.PUD_UP)
-
-    while GPIO.input(A) == GPIO.HIGH:  # wait while HIGH / not pressed
-        time.sleep(0.01)
-
-    button_down_time = time.time()  # record the time when the button went down
-
-    held_down = False
-
-    while GPIO.input(A) == GPIO.LOW:  # wait while LOW / pressed
-        time.sleep(0.01)
-        if time.time() - button_down_time > 3:  # has 3 seconds gone by?
-            held_down = True
-            break
-
-    if held_down:
-        print("Held down")
-        sense.show_message("Here we go!")
-    else:
-        print("Not held down")
-    ```
-
-    When you hold down **A** for three seconds you should see the **Here we go** message.
+for pin in [UP, DOWN, LEFT, RIGHT, A, B]:
+    GPIO.setup(pin, GPIO.IN, GPIO.PUD_UP)
+```

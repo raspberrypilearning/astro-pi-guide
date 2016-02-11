@@ -198,6 +198,7 @@ for pin in [UP, DOWN, LEFT, RIGHT, A, B]:
 1. Why not try making the joystick also change the colours? Check for `event.key` having these values:
 
   - `K_UP`
+  - `K_DOWN`
   - `K_LEFT`
   - `K_RIGHT`
   - `K_RETURN`

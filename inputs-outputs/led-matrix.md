@@ -1,12 +1,12 @@
 # LED Matrix
 
-The Sense HAT LED matrix contains 64 multi-colour LEDs. Each of the 64 LEDs actually have three smaller LEDs inside them, one for each primary colour, just like a pixel on a TV, monitor or smartphone screen.
+The Sense HAT LED matrix contains 64 multi-colour LEDs. Each of the 64 LEDs actually have three smaller LEDs inside them, just like a pixel on a TV, monitor or smartphone screen.
 
 ## Simple colour mixing
 
 ![](images/additive_color_mixing.png)
 
-In additive colour mixing there are three primary colours: red, green, and blue. In the image above, there are three spotlights of equal brightness, one for each primary colour. In the absence of any colour the result is black. If all three primary colours are mixed, the result is white. When red and green combine, the result is yellow. When red and blue combine, the result is magenta. When blue and green combine, the result is cyan. It's possible to make even more colours than this by varying the brightness of the primary colours used.
+In additive colour mixing three colours: red, green, and blue are used to make other colours. In the image above, there are three spotlights of equal brightness, one for each colour. In the absence of any colour the result is black. If all three colours are mixed, the result is white. When red and green combine, the result is yellow. When red and blue combine, the result is magenta. When blue and green combine, the result is cyan. It's possible to make even more colours than this by varying the brightness of the three original colours used.
 
 1. Open **Python 3** from a terminal window as `sudo` by typing:
 
@@ -34,7 +34,7 @@ In additive colour mixing there are three primary colours: red, green, and blue.
 
 1. The LED matrix will then go bright white.
 
-1. The variables `r`, `g` and `b` represent the primary colours red, green, and blue. The numbers they contain specify how bright each colour should be; they can be between 0 and 255. In the above code the maximum value for each colour has been used, so the result is white.
+1. The variables `r`, `g` and `b` represent the colours red, green, and blue. The numbers they contain specify how bright each colour should be; they can be between 0 and 255. In the above code the maximum value for each colour has been used, so the result is white.
 
 1. Change the values to specify 255 red but 0 green and blue, then run the code again.
 

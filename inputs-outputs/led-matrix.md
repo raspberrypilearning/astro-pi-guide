@@ -72,7 +72,7 @@ This colour mixing system is used throughout the Astro Pi programming module. Yo
 
 This image shows the pixels on a laptop LCD screen. You can see that the pixels are turned on and off to form the pattern of letters and numbers.
 
-    ![](images/closeup_of_pixels.jpg)
+![](images/closeup_of_pixels.jpg)
 
 This is how all computer and smartphone screens work. If you want to make recognisable shapes on the LED matrix this is what you also need to do. You only have a resolution of 8 by 8 pixels to work with on the Sense HAT LED matrix though, so you must make shapes and icons that will look quite blocky. This can be a nice challenge!
 

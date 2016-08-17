@@ -8,11 +8,9 @@ The Sense HAT LED matrix contains 64 multi-colour LEDs. Each of the 64 LEDs actu
 
 In additive colour mixing three colours: red, green, and blue are used to make other colours. In the image above, there are three spotlights of equal brightness, one for each colour. In the absence of any colour the result is black. If all three colours are mixed, the result is white. When red and green combine, the result is yellow. When red and blue combine, the result is magenta. When blue and green combine, the result is cyan. It's possible to make even more colours than this by varying the brightness of the three original colours used.
 
-1. Open **Python 3** from a terminal window as `sudo` by typing:
+1. Click on `Menu` > `Programming` > `Python 3 (IDLE)` to open a new Python shell.
 
-    ```bash
-    sudo idle3 &
-    ```
+1. Select `File > New Window`.
 
 1. Type in the following code:
 
@@ -33,6 +31,8 @@ In additive colour mixing three colours: red, green, and blue are used to make o
 1. Then select `Run > Run module`.
 
 1. The LED matrix will then go bright white.
+
+<iframe src="https://trinket.io/embed/python/a588ddedcf" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 1. The variables `r`, `g` and `b` represent the colours red, green, and blue. The numbers they contain specify how bright each colour should be; they can be between 0 and 255. In the above code the maximum value for each colour has been used, so the result is white.
 
@@ -67,6 +67,9 @@ This colour mixing system is used throughout the Astro Pi programming module. Yo
     ```
 
     *Note: The comma is important, don't forget it!*
+    
+
+<iframe src="https://trinket.io/embed/python/c77e0ee071" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 ## Pixels
 
@@ -99,6 +102,8 @@ This is how all computer and smartphone screens work. If you want to make recogn
 
 1. This will turn one LED in the corner white.
 
+    <iframe src="https://trinket.io/embed/python/72b218f5b5" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
 1. Remember that you can change the colour if you wish.
 
 ## Using coordinates to set pixels
@@ -120,6 +125,8 @@ sense.set_pixel(0, 7, 0, 255, 0)
 sense.set_pixel(7, 0, 0, 0, 255)
 sense.set_pixel(7, 7, 255, 0, 255)
 ```
+
+<iframe src="https://trinket.io/embed/python/78c2595904" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 ## Drawing shapes and patterns on the LED matrix
 
@@ -146,6 +153,8 @@ creeper_pixels = [
 
 sense.set_pixels(creeper_pixels)
 ```
+
+<iframe src="https://trinket.io/embed/python/d6ccea808e" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 You can even use more than two colours, like in this example of Steve from Minecraft:
 

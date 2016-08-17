@@ -18,6 +18,8 @@ If you don't know your orientation you are in big trouble, so an IMU sensor like
 
 Above is a picture of the IMU sensor from the Apollo command module. You'll notice how big it is compared to the tiny black cube on the Astro Pi; that's the difference between 1975 and 2015 technology. Incidentally, the Astro Pi IMU is probably not as accurate as the Apollo one, however it is a million times cheaper!
 
+**Note that the IMU is not currently supported within trinket.io, so can't be emulated at this time**
+
 ## How is orientation represented?
 
 We all know the Earth rotates around an axis that runs between the North and South Poles. All objects in space or otherwise have *three* axes around which they can rotate. If you know how much rotation has happened on each axis, then you know which way the object is pointing.
@@ -64,11 +66,8 @@ Press `Esc` to exit the demo. Let's try a simpler version of this ourselves in c
 
 ## Which way am I pointing?
 
-1. Open **Python 3** from a terminal window as `sudo` by typing:
+1. Click on `Menu` > `Programming` > `Python 3 (IDLE)` to open a new Python shell.
 
-    ```bash
-    sudo idle3 &
-    ```
 
 1. Select `File > New Window` and enter the following code:
 
@@ -81,7 +80,7 @@ Press `Esc` to exit the demo. Let's try a simpler version of this ourselves in c
     pitch = o["pitch"]
     roll = o["roll"]
     yaw = o["yaw"]
-    print("pitch %s roll %s yaw %s" % (pitch, roll, yaw))
+    print("pitch {0} roll {1} yaw {2}".format(pitch, roll, yaw))
     ```
 
 1. Select `File > Save` and choose a file name for your program.
@@ -120,7 +119,7 @@ Press `Esc` to exit the demo. Let's try a simpler version of this ourselves in c
         roll = round(roll, 1)
         yaw = round(yaw, 1)
 
-        print("pitch %s roll %s yaw %s" % (pitch, roll, yaw))
+        print("pitch {0} roll {1} yaw {2}".format(pitch, roll, yaw))
     ```
 
 1. Move the Pi around in your hand and you should see the numbers changing. See if you can just make one axis change by moving only in the pitch direction for example. Do this for all three axes. Press `Ctrl - C` to stop the program.

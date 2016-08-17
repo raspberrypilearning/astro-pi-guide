@@ -6,13 +6,7 @@ The Sense HAT joystick is mapped to the four keyboard cursor keys, with the joys
 
 ## Keyboard mapping
 
-1. Open **Python 3** from a terminal window as `sudo` by typing:
-
-    ```bash
-    sudo idle3 &
-    ```
-
-1. A Python Shell window will now appear.
+1. Click on `Menu` > `Programming` > `Python 3 (IDLE)` to open a new Python shell.
 
 1. Select `File > New Window`.
 

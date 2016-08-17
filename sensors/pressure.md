@@ -21,17 +21,9 @@ Atmospheric pressure (also known as barometric pressure) is the pressure exerted
 
 ## What is the pressure?
 
-1. Open **Python 3** from a terminal window as `sudo` by typing:
+1. Click on `Menu` > `Programming` > `Python 3 (IDLE)` to open a new Python shell.
 
-    ```bash
-    sudo idle3 &
-    ```
-
-1. A Python Shell window will now appear. The terminal window can now be closed.
-
-1. Select `File > New Window`.
-
-1. Enter the following code:
+1. Select `File > New Window` and enter the following code:
 
     ```python
     from sense_hat import SenseHat
@@ -57,6 +49,8 @@ Atmospheric pressure (also known as barometric pressure) is the pressure exerted
     ```
 
     If you get `0` just run the code again. This sometimes happens when you use the pressure sensor for the first time.
+
+    <iframe src="https://trinket.io/embed/python/a70fc2a0df" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 1. Just before the `print(pressure)` line, add this line below:
 
@@ -117,19 +111,24 @@ The experiment involves sealing a Raspberry Pi fitted with a Sense HAT inside a 
 
 Below is the code that was used in the video. It can cope with 1000 to 1100 millibars, so that's 100 millibars of range. We know that the LED matrix colours have a range of 0 to 255, so the first thing it does is create a ratio between the pressure range and the colour range. The plan is then to multiply the measured pressure by that ratio to get the colour. You have to subtract 1000 from the measured pressure to make this work, so you're multiplying a number between 0 and 100 by the ratio. It then clamps the colour to a maximum of 255, in case there is someone with very strong lungs who can drive the pressure higher than 1100 millibars.
 
-    ```python
-    from sense_hat import SenseHat
+```python
+from sense_hat import SenseHat
 
-    sense = SenseHat()
-    sense.clear()
+sense = SenseHat()
+sense.clear()
 
-    ratio = 255 / 100.0
+ratio = 255 / 100.0
 
-    while True:
-        pressure = sense.get_pressure()
-        pressure = round(pressure, 1) - 1000
-        blue = int(ratio * pressure)
-        if blue > 255:
-            blue = 255
-        sense.clear((0, 0, blue))
-    ```
+while True:
+    pressure = sense.get_pressure()
+    pressure = round(pressure, 1) - 1000
+    blue = int(ratio * pressure)
+    if blue > 255:
+        blue = 255
+    elif blue < 0:
+        blue = 0
+    sense.clear((0, 0, blue))
+```
+
+
+<iframe src="https://trinket.io/embed/python/5de196ff09" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>

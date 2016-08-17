@@ -25,22 +25,18 @@ The Sense HAT gives you the humidity measurement as relative humidity. This is w
 
 ## what is the current humidity?
 
-1. Open **Python 3** from a terminal window as `sudo` by typing:
-
-    ```bash
-    sudo idle3 &
-    ```
+1. Click on `Menu` > `Programming` > `Python 3 (IDLE)` to open a new Python shell.
 
 1. Select `File > New Window` and enter the following code:
 
     ```python
-    from sense_hat import SenseHat
+from sense_hat import SenseHat
 
-    sense = SenseHat()
-    sense.clear()
+sense = SenseHat()
+sense.clear()
 
-    humidity = sense.get_humidity()
-    print(humidity)
+humidity = sense.get_humidity()
+print(humidity)
     ```
 
 1. Select `File > Save` and choose a file name for your program.
@@ -55,6 +51,8 @@ The Sense HAT gives you the humidity measurement as relative humidity. This is w
     Humidity sensor Init Succeeded
     34.6234588623
     ```
+
+    <iframe src="https://trinket.io/embed/python/cd35fdd905" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 1. Just before the `print(humidity)` line add this line below:
 
@@ -117,5 +115,7 @@ while True:
 
     sense.set_pixels(pixels)
 ```
+
+<iframe src="https://trinket.io/embed/python/0b0d578bcf" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 **Please note that it is possible to get a value higher than 100 from the humidity sensor.**

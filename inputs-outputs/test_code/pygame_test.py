@@ -4,19 +4,7 @@ import os
 import time
 import pygame  # See http://www.pygame.org/docs
 from pygame.locals import *
-import RPi.GPIO as GPIO
 
-UP = 26
-DOWN = 13
-LEFT = 20
-RIGHT = 19
-A = 16
-B = 21
-
-GPIO.setmode(GPIO.BCM)
-
-for pin in [UP, DOWN, LEFT, RIGHT, A, B]:
-    GPIO.setup(pin, GPIO.IN, GPIO.PUD_UP)
 
 print("Press Escape to quit")
 time.sleep(1)
@@ -66,7 +54,6 @@ def handle_event(event, colour):
         sense.show_letter("a", colour)
     elif event.key == pygame.K_b:
         sense.show_letter("b", colour)
-
 
 
 running = True

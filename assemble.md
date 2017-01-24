@@ -23,7 +23,3 @@
 1. Lastly, put the remaining screws through from the top.
 
 1. Use a small Phillips screwdriver to tighten each corner stand-off individually. They don't need to be especially tight, just enough to ensure that the HAT doesn't become loose.
-
-## What next?
-
-Now that you have fitted your Sense HAT onto your Raspberry Pi, you will need to complete the [Software setup](software.md).

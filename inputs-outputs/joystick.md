@@ -3,133 +3,124 @@
 The Sense HAT joystick is mapped to the four keyboard cursor keys, with the joystick middle-click being mapped to the Return key. This means that moving the joystick has exactly the same effect as pressing those keys on the keyboard. Remember that the down direction is with the HDMI port facing downwards.
 
   ![](images/cursor_keys.jpg)
+  
+However, you can also access the movement of the joystick with a little Python code.
 
-## Keyboard mapping
+## Accessing the joystick events.
 
-1. Click on `Menu` > `Programming` > `Python 3 (IDLE)` to open a new Python shell.
+To find out what each joystick event outputs, you can print the events to the shell. This bit of code will print out the direction that the joystick was pushed in, or the direction from which it was released.
 
-1. Select `File > New Window`.
+```python
+from sense_hat import SenseHat
+sense = SenseHat()
 
-1. Type in the following code:
 
-    ```python
-    import pygame
+while True:
+    for event in sense.stick.get_events():
+        print(event.direction, event.action)
+```
 
-    from pygame.locals import *
-    from sense_hat import SenseHat
+In the trinket emulator, you can pretend to be moving the joystick using your keyboards cursor keys.
 
-    pygame.init()
-    pygame.display.set_mode((640, 480))
-    sense = SenseHat()
-    sense.clear()
+<iframe src="https://trinket.io/embed/python/ee4e2a3edf" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
-    running = True
+You should see something like the following printed out, as you press the joystick in various directions.
 
-    while running:
-        for event in pygame.event.get():
-            print(event)
-            if event.type == QUIT:
-                running = False
-                print("BYE")
-    ```
+```python
+('up', 'pressed')
+('up', 'released')
+('down', 'pressed')
+('down', 'released')
+('left', 'pressed')
+('left', 'released')
+('right', 'pressed')
+('right', 'released')
+('middle', 'pressed')
+('middle', 'released')
+```
 
-1. Select `File > Save` and choose a file name for your program.
+## Moving a pixel using the joystick
 
-1. Then select `Run > Run module`.
+One example of how you could use this in a program, as to control a pixel on the LED matrix, moving it around and changing it's colour for instance.
 
-    Note that we are using the [pygame](http://www.pygame.org/docs/) Python module to detect the key presses.
+You can start by setting the `x` and `y` coordinates for the pixel to be illuminated, providing a list of colours, and then providing a value for which colour in the list the first pixel should be illuminated.
 
-1. A blank window will appear. Use the mouse to move it to one side of your screen so that the Python Shell window is also visible.
+```python
+from sense_hat import SenseHat
+sense = SenseHat()
 
-1. Keep the blank window selected but move the mouse over it, press and release some keys on the keyboard and waggle the Sense HAT joystick. Try pressing and holding a key for a moment and then releasing it a few seconds later. You should notice that two events occur when you do this: one for the key going down, and another for the key being released. For this program you will only use the **KEY DOWN** event.
+x, y = 0, 0
+colours = [[255,0,0], [0,255,0], [0,0,255], [255,255,0], [255,0,255], [0,255,255]]
+colour = 0
+```
 
-1. Click the `x` in the corner of the blank pygame window. You should see the `BYE` message appear in the *Python Shell* window but the blank window does not close.
+Next you can use that same code as before to detect joystick movements, but set a pixel each time the joystick is moved, instead of printing.
 
-We're consuming the pygame event queue using the `for event in pygame.event.get():` syntax. This will loop through all keyboard and mouse events that occur. Inside the loop, we display what the event was by using `print(event)` and then test to see if the event type is `QUIT`. If it is, we set `running` to `False` which causes the `while` loop to end and the program to finish. The program should print a line of text in the Python Shell window whenever we move the mouse, click the mouse, and press or release a keyboard key.
+```python
+while True:
+	for event in sense.stick.get_events():
+		sense.set_pixel(x, y, colours[colour])
+```
 
-## Detecting movement of joystick with code
+The next stage is to detect when the joystick is pressed, and the direction it is pressed in, and change the `x` and `y` position of the pixel,
 
-Consider how a joystick might work. You can use the LED matrix to help you think about it. Let's make a pixel white and use the joystick to move the pixel around the 8x8 matrix. To do this you can use an event to detect a key press. For example, if a key is pressed DOWN what steps need to happen to move the pixel?
+```python
+while True:
+	for event in sense.stick.get_events():
+		sense.set_pixel(x, y, colours[colour])
+		if event.action == 'pressed' and event.direction == 'up':
+			y -= 1
+		if event.action == 'pressed' and event.direction == 'down':
+			y += 1
+		if event.action == 'pressed' and event.direction == 'right':
+			x += 1
+		if event.action == 'pressed' and event.direction == 'left':
+			x -= 1
+```
 
-    - Turn OFF the LED using current `x` and `y`
-    - If DOWN then add 1 to `y`
-    - If UP then subtract 1 from `y`
-    - If RIGHT then add 1 to `x`
-    - If LEFT then subtract 1 from `x`
-    - Turn ON the LED using updated `x` and `y`
+You can try this out if you like, but there's a problem. If the pixel falls off the edge of the matrix, the program will error, so this needs handling in the code.
 
-1. Start by just adding the code for the DOWN key. Delete the `print(event)` command that you used in the previous section and insert the code below at the same indentation level:
+```python
+while True:
+    for event in sense.stick.get_events():
+        sense.set_pixel(x, y, colours[colour])
+        if event.action == 'pressed' and event.direction == 'up':
+            if y > 0:
+                y -= 1
+        if event.action == 'pressed' and event.direction == 'down':
+            if y < 7:
+                y += 1
+        if event.action == 'pressed' and event.direction == 'right':
+            if x < 7:
+                x += 1
+        if event.action == 'pressed' and event.direction == 'left':
+            if x > 0:
+                x -= 1
+```
 
-    ```python
-    if event.type == KEYDOWN:
-        sense.set_pixel(x, y, 0, 0, 0)  # Black 0,0,0 means OFF
+Lastly, if the joystick's direction is middle, you can change the `colour`. If the `colour` value is longer that the length of the `colours` list, then it needs to reset to `0`
 
-        if event.key == K_DOWN:
-            y = y + 1
+```python
+while True:
+    for event in sense.stick.get_events():
+        sense.set_pixel(x, y, colours[colour])
+        if event.action == 'pressed' and event.direction == 'up':
+            if y > 0:
+                y -= 1
+        if event.action == 'pressed' and event.direction == 'down':
+            if y < 7:
+                y += 1
+        if event.action == 'pressed' and event.direction == 'right':
+            if x < 7:
+                x += 1
+        if event.action == 'pressed' and event.direction == 'left':
+            if x > 0:
+                x -= 1
+        if event.action == 'pressed' and event.direction == 'middle':
+            colour += 1
+            if colour == len(colours):
+                colour = 0
+```
 
-            sense.set_pixel(x, y, 255, 255, 255)
-    ```
+<iframe src="https://trinket.io/embed/python/459fe4e4e1" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
-1. Save and run the code. You should be able to move the pixel point down using the `DOWN` key or the joystick. If you keep going, you'll eventually see this error:
-
-  `ValueError: Y position must be between 0 and 7`
-
-1. Our `y` value can only be between 0-7, otherwise it's off the edge of the matrix and into empty space! So that's why the error happens; the Sense HAT doesn't understand values outside this range. Our code just keeps adding 1 to `y` every time the DOWN key is pressed, so we need to stop `y` going above 7.
-
-    We can achieve this by adding the syntax `and y < 7` (and `y` is less than 7) to the key direction test:
-
-    ```python
-    if event.key == K_DOWN and y < 7:
-        y = y + 1
-    ```
-
-1. Save and run the code again; this time, the code should not allow the point to go beyond the edge of the screen.
-
-1. Now that this works, you will need to add the other directions for the joystick. Where you have `if event.key == K_DOWN:` in your code, you can also use:
-
-  - `K_UP`
-  - `K_LEFT`
-  - `K_RIGHT`
-  - `K_RETURN`
-
-1. We can add a section for each direction to complete your code:
-
-    ```python
-    import pygame
-
-    from pygame.locals import *
-    from sense_hat import SenseHat
-
-    pygame.init()
-    pygame.display.set_mode((640, 480))
-
-    sense = SenseHat()
-    sense.clear()
-
-    running = True
-
-    x = 0
-    y = 0
-    sense.set_pixel(x, y, 255, 255, 255)
-
-    while running:
-        for event in pygame.event.get():
-            if event.type == KEYDOWN:
-                sense.set_pixel(x, y, 0, 0, 0)  # Black 0,0,0 means OFF
-
-                if event.key == K_DOWN and y < 7:
-                    y = y + 1
-                elif event.key == K_UP and y > 0:
-                    y = y - 1
-                elif event.key == K_RIGHT and x < 7:
-                    x = x + 1
-                elif event.key == K_LEFT and x > 0:
-                    x = x - 1
-
-            sense.set_pixel(x, y, 255, 255, 255)
-            if event.type == QUIT:
-                running = False
-                print("BYE")
-    ```
-
-1. When you run your code, you should now be able to move the pixel point anywhere on the matrix.

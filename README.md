@@ -10,9 +10,9 @@ This collection of guides and worksheets has been designed to provide you with a
 - [Assemble the Sense HAT](assemble.md)
 - [Sense HAT: emulation](emulation.md)
 - [Sense HAT: first program](program.md)
-- [Sense HAT Python Cheatsheet](files/SenseHAT-Cheatsheet.pdf)
+- [Sense HAT Python cheatsheet](files/SenseHAT-Cheatsheet.pdf)
 - [Getting started with Astro Pi learn resource](https://www.raspberrypi.org/learning/getting-started-with-astro-pi)
-- [Sense HAT Pixel Workshop Worksheet](files/printable-worksheet.pdf)
+- [Sense HAT pixel workshop worksheet](files/printable-worksheet.pdf)
 
 ## Sensors
 
@@ -24,10 +24,10 @@ This collection of guides and worksheets has been designed to provide you with a
 ## Inputs & Outputs
 
 - [Joystick](inputs-outputs/joystick.md)
-- [LED Matrix](inputs-outputs/led-matrix.md)
+- [LED matrix](inputs-outputs/led-matrix.md)
 - [Buttons](inputs-outputs/buttons.md)
 
 ## Learn more about Astro Pi
 
-- [The Official Astro Pi Website](http://astro-pi.org/)
+- [The official Astro Pi website](http://astro-pi.org/)
 - Martin O'Hanlon has built a [virtual Astro Pi](http://www.stuffaboutcode.com/2015/05/interactive-minecraft-astro-pi.html) (Sense HAT) in Minecraft which you can interact with to explore the functionality of the board.

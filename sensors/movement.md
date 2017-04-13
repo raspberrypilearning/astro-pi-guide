@@ -72,15 +72,15 @@ Press `Esc` to exit the demo. Let's try a simpler version of this ourselves in c
 1. Select `File > New Window` and enter the following code:
 
     ```python
-    from sense_hat import SenseHat
-    sense = SenseHat()
-    sense.clear()
+	from sense_hat import SenseHat
+	sense = SenseHat()
+	sense.clear()
 
-    o = sense.get_orientation()
-    pitch = o["pitch"]
-    roll = o["roll"]
-    yaw = o["yaw"]
-    print("pitch {0} roll {1} yaw {2}".format(pitch, roll, yaw))
+	o = sense.get_orientation()
+	pitch = o["pitch"]
+	roll = o["roll"]
+	yaw = o["yaw"]
+	print("pitch {0} roll {1} yaw {2}".format(pitch, roll, yaw))
     ```
 
 1. Select `File > Save` and choose a file name for your program.
@@ -96,6 +96,9 @@ Press `Esc` to exit the demo. Let's try a simpler version of this ourselves in c
     pitch 356.35723002363454 roll 303.4986602798494 yaw 339.19880231669873
     ```
 
+	<iframe src="https://trinket.io/embed/python/c2009c972b" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+
 1. We don't need all the numbers after the decimal point so let's round them off. Just before the `print("pitch %s roll %s yaw %s" % (pitch, roll, yaw))` line, add these lines below:
 
     ```python
@@ -109,20 +112,22 @@ Press `Esc` to exit the demo. Let's try a simpler version of this ourselves in c
 1. It would be good to monitor the axis values changing during movements, so let's put your code into a `while` loop and run it again:
 
     ```python
-    while True:
-        o = sense.get_orientation()
-        pitch = o["pitch"]
-        roll = o["roll"]
-        yaw = o["yaw"]
+	while True:
+		o = sense.get_orientation()
+		pitch = o["pitch"]
+		roll = o["roll"]
+		yaw = o["yaw"]
 
-        pitch = round(pitch, 1)
-        roll = round(roll, 1)
-        yaw = round(yaw, 1)
+		pitch = round(pitch, 1)
+		roll = round(roll, 1)
+		yaw = round(yaw, 1)
 
-        print("pitch {0} roll {1} yaw {2}".format(pitch, roll, yaw))
+		print("pitch {0} roll {1} yaw {2}".format(pitch, roll, yaw))
     ```
 
 1. Move the Pi around in your hand and you should see the numbers changing. See if you can just make one axis change by moving only in the pitch direction for example. Do this for all three axes. Press `Ctrl - C` to stop the program.
+
+	<iframe src="https://trinket.io/embed/python/5eae2e7b33" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 ## Display orientation on the LED matrix
 
@@ -183,29 +188,32 @@ Press `Esc` to exit the demo. Let's try a simpler version of this ourselves in c
     So the length is 28. If we divide 28 by 360 we have a ratio between, say, the yaw measurement and the positions in our list (how far around the edge we are). We can then get the sequential pixel number out of the list at the calculated position, work out its coordinate and then switch the LED on! Like this:
 
     ```python
-    from sense_hat import SenseHat
+	from sense_hat import SenseHat
 
-    sense = SenseHat()
-    sense.clear()
+	sense = SenseHat()
+	sense.clear()
 
-    edge = [0, 1, 2, 3, 4, 5, 6, 7, 15, 23, 31, 39, 47, 55, 63, 62, 61, 60, 59, 58, 57, 56, 48, 40, 32, 24, 16, 8]
-    length = len(edge)
-    ratio = length / 360.0
+	edge = [0, 1, 2, 3, 4, 5, 6, 7, 15, 23, 31, 39, 47, 55, 63, 62, 61, 60, 59, 58, 57, 56, 48, 40, 32, 24, 16, 8]
+	length = len(edge)
+	ratio = length / 360.0
 
-    while True:
-        o = sense.get_orientation()
-        pitch = o["pitch"]
-        roll = o["roll"]
-        yaw = o["yaw"]
+	while True:
+		o = sense.get_orientation()
+		pitch = o["pitch"]
+		roll = o["roll"]
+		yaw = o["yaw"]
 
-        yaw_list_position = int(yaw * ratio)
+		yaw_list_position = int(yaw * ratio)
 
-        yaw_pixel_number = edge[yaw_list_position]
+		yaw_pixel_number = edge[yaw_list_position]
 
-        y = yaw_pixel_number // 8
-        x = yaw_pixel_number % 8
+		y = yaw_pixel_number // 8
+		x = yaw_pixel_number % 8
 
-        sense.set_pixel(x, y, 255, 255, 255)
+		sense.set_pixel(x, y, 255, 255, 255)
     ```
+
+
+	<iframe src="https://trinket.io/embed/python/cd6cd1ec54" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 1. What you'll notice is that the above code only turns LEDs on, you'll need to figure out how to turn them off yourself. Try having a variable for the previous `x` and `y` from the last time around the loop and if this is different from the new `x` and `y` you use `set_pixel` to set the LED to black.

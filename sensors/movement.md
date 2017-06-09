@@ -38,9 +38,9 @@ The image above shows where these axes are in relation to the Sense HAT.
 
 Let's download and run a 3D demo program to explore this.
 
-## Apollo Soyuz Demo
+## Apollo-Soyuz Demo
 
-The image below shows the Apollo Soyuz module that was formed when the USA and USSR met in orbit around the earth in 1975. The 3D demo we're going to play with shows this same spacecraft (but with less detail).
+The image below shows the Apollo-Soyuz module that was formed when the USA and USSR met in orbit around the earth in 1975. The 3D demo we're going to play with shows this same spacecraft (but with less detail).
 
 ![](images/apollo_soyuz.jpg)
 

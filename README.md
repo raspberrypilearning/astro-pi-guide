@@ -12,7 +12,7 @@ This collection of guides and worksheets has been designed to provide you with a
 - [Sense HAT: first program](program.md)
 - [Sense HAT Python cheatsheet](files/SenseHAT-Cheatsheet.pdf)
 - [Getting started with Astro Pi learn resource](https://www.raspberrypi.org/learning/getting-started-with-astro-pi)
-- [Sense HAT pixel workshop worksheet](files/printable-worksheet.pdf)
+- [Sense HAT pixel workshop worksheet](files/Sense-HAT-Worksheet-Digital.pdf)
 
 ## Sensors
 

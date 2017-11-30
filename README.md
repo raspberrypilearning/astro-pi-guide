@@ -1,5 +1,7 @@
 # A Guide to Astro Pi
 
+**This is an archived resource.** The repo will remain available but the resource will no longer be maintained or updated. Some or all parts of the resource may no longer work. To see our latest resources, please visit [raspberrypi.org](http://www.raspberrypi.org). 
+
 ![Astro Pi](images/cover.png)
 
 This collection of guides and worksheets has been designed to provide you with a broad understanding of the Sense HAT and its capabilities. They could be used by teachers and students who have just entered the Astro Pi [Secondary School competition](http://astro-pi.org/secondary-school-competition/), or by anyone wanting to make the most of their Sense HAT. It will introduce you to what the board does, how to set it up, how to write your first program, and how to use the HAT's many features.
